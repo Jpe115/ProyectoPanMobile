@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ProyectoPanMobile.Views.Login1"
+             xmlns:mct="clr-namespace:CommunityToolkit.Maui.Behaviors;assembly=CommunityToolkit.Maui">
+
+    <Page.Behaviors>
+        <mct:StatusBarBehavior StatusBarColor="#005BFF" StatusBarStyle="LightContent"/>
+    </Page.Behaviors>
+
+    <VerticalStackLayout Padding="10"
+                         Spacing="17"
+                         Margin="15">
+        <Image Source="dotnet_bot.png"
+               HeightRequest="80"/>
+        
+        <Label 
+            Text="Proyecto Pan"
+            FontSize="Large"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" 
+            FontAttributes="Bold"/>
+        <Label />
+
+        <Label Text="Correo electrónico o nombre de usuario"
+               FontSize="Title"
+               HorizontalTextAlignment="Start"/>
+
+        <Entry Keyboard="Email" 
+               FontSize="Medium"
+               HorizontalTextAlignment="Start" 
+               HorizontalOptions="Fill" />
+
+        <Label Text="Contraseña"
+               FontSize="Title"
+               HorizontalTextAlignment="Start"/>
+
+        <Entry Keyboard="Text" 
+               FontSize="Medium"
+               HorizontalTextAlignment="Start" 
+               HorizontalOptions="Fill" />
+
+        <Button Text="  Iniciar sesion  "
+                FontSize="Subtitle"
+                BorderWidth="3"
+                CornerRadius="17"
+                HorizontalOptions="Center"/>
+
+        <Button Text="  Crear cuenta  "
+                FontSize="Subtitle"
+                CornerRadius="17"
+                HorizontalOptions="Center"/>
+
+    </VerticalStackLayout>
+</ContentPage>
