@@ -10,5 +10,6 @@ namespace ProyectoPanMobile.Models
     {
         public bool SesionIniciada { get; set; }
         public int Theme { get; set; }
+        
     }
 }

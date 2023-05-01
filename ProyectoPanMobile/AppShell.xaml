@@ -5,10 +5,9 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:local="clr-namespace:ProyectoPanMobile.Views"
     Shell.FlyoutBehavior="Disabled" 
-    xmlns:m="clr-namespace:CommunityToolkit.Maui;assembly=CommunityToolkit.Maui">
+    xmlns:m="clr-namespace:CommunityToolkit.Maui;assembly=CommunityToolkit.Maui" >
 
     <ShellContent
-        ContentTemplate="{DataTemplate local:Login1}"
-        Route="MainPage" />
+        ContentTemplate="{DataTemplate local:Login1}"/>
 
 </Shell>

@@ -5,12 +5,13 @@
              xmlns:mct="clr-namespace:CommunityToolkit.Maui.Behaviors;assembly=CommunityToolkit.Maui">
 
     <Page.Behaviors>
-        <mct:StatusBarBehavior StatusBarColor="#005BFF" StatusBarStyle="LightContent"/>
+        <mct:StatusBarBehavior StatusBarColor="{AppThemeBinding Dark={StaticResource Black}, Light={StaticResource SAzul}}"
+                               StatusBarStyle="LightContent"/>
     </Page.Behaviors>
 
     <VerticalStackLayout Padding="10"
                          Spacing="17"
-                         Margin="15">
+                         Margin="17">
         <Image Source="dotnet_bot.png"
                HeightRequest="80"/>
         
@@ -41,14 +42,17 @@
                HorizontalOptions="Fill" />
 
         <Button Text="  Iniciar sesion  "
+                x:Name="BtnIniciar"
+                Clicked="BtnIniciar_Clicked"
                 FontSize="Subtitle"
-                BorderWidth="3"
-                CornerRadius="17"
+                CornerRadius="13"
                 HorizontalOptions="Center"/>
 
         <Button Text="  Crear cuenta  "
+                x:Name="BtnCrear"
+                Clicked="BtnCrear_Clicked"
                 FontSize="Subtitle"
-                CornerRadius="17"
+                CornerRadius="13"
                 HorizontalOptions="Center"/>
 
     </VerticalStackLayout>
