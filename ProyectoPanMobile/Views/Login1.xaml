@@ -12,8 +12,9 @@
     <VerticalStackLayout Padding="10"
                          Spacing="17"
                          Margin="17">
-        <Image Source="dotnet_bot.png"
-               HeightRequest="80"/>
+        <Image Source="bakery.png"
+               HeightRequest="80"
+               Margin="5"/>
         
         <Label 
             Text="Proyecto Pan"
@@ -25,9 +26,10 @@
 
         <Label Text="Correo electrónico o nombre de usuario"
                FontSize="Title"
-               HorizontalTextAlignment="Start"/>
+               HorizontalTextAlignment="Start" />
 
         <Entry Keyboard="Email" 
+               x:Name="Correo"
                FontSize="Medium"
                HorizontalTextAlignment="Start" 
                HorizontalOptions="Fill" />
@@ -37,23 +39,32 @@
                HorizontalTextAlignment="Start"/>
 
         <Entry Keyboard="Text" 
+               x:Name="Contra"
                FontSize="Medium"
                HorizontalTextAlignment="Start" 
                HorizontalOptions="Fill" />
 
-        <Button Text="  Iniciar sesion  "
+        <Button Text="Iniciar sesion"
                 x:Name="BtnIniciar"
                 Clicked="BtnIniciar_Clicked"
                 FontSize="Subtitle"
                 CornerRadius="13"
-                HorizontalOptions="Center"/>
+                HorizontalOptions="Center"
+                Margin="5"
+                Padding="16,0"
+                BorderWidth="1"
+                BorderColor="{AppThemeBinding Light={StaticResource Transparente}, Dark={StaticResource SBlanco}}"/>
 
-        <Button Text="  Crear cuenta  "
+        <Button Text="Crear cuenta"
                 x:Name="BtnCrear"
                 Clicked="BtnCrear_Clicked"
                 FontSize="Subtitle"
                 CornerRadius="13"
-                HorizontalOptions="Center"/>
+                HorizontalOptions="Center"
+                Margin="2"
+                Padding="16,0"
+                BorderWidth="1"
+                BorderColor="{AppThemeBinding Light={StaticResource Transparente}, Dark={StaticResource SBlanco}}"/>
 
     </VerticalStackLayout>
 </ContentPage>
