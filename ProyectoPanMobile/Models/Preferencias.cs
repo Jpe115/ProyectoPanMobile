@@ -6,10 +6,9 @@ using System.Threading.Tasks;
 
 namespace ProyectoPanMobile.Models
 {
-    public class Preferencias
+    public static class Preferencias
     {
-        public bool SesionIniciada { get; set; }
-        public int Theme { get; set; }
+        public static int Theme { get; set; }
         
     }
 }

@@ -1,4 +1,7 @@
-﻿namespace ProyectoPanMobile;
+﻿using ProyectoPanMobile.Models;
+using ProyectoPanMobile.Views;
+
+namespace ProyectoPanMobile;
 
 public partial class App : Application
 {
@@ -6,6 +9,18 @@ public partial class App : Application
 	{
 		InitializeComponent();
 
-		MainPage = new AppShell();
+        pagina();
 	}
+    public void pagina()
+    {
+        var isAuthenticated = Preferences.Get("SesionIniciada",false);
+        if (isAuthenticated)
+        {
+            Application.Current.MainPage = new Inicio();
+        }
+        else
+        {
+            Application.Current.MainPage = new Login1();
+        }
+    }
 }

@@ -3,6 +3,7 @@
 using CommunityToolkit.Maui.Core;
 using CommunityToolkit.Maui.Core.Platform;
 using Microsoft.Maui.Controls.Xaml;
+using ProyectoPanMobile.Models;
 
 namespace ProyectoPanMobile.Views;
 
@@ -30,7 +31,8 @@ public partial class Login1 : ContentPage
             }
             else
             {
-
+                Preferences.Set("SesionIniciada", true);
+                await Navigation.PushModalAsync(new Inicio());
             }
         }
         catch (Exception ex)
@@ -41,6 +43,11 @@ public partial class Login1 : ContentPage
 
     private async void BtnCrear_Clicked(object sender, EventArgs e)
     {
-        await Shell.Current.GoToAsync(nameof(Login2));
+        await Navigation.PushModalAsync(new Login2());
+    }
+    protected override bool OnBackButtonPressed()
+    {
+        Application.Current.Quit();
+        return true;
     }
 }

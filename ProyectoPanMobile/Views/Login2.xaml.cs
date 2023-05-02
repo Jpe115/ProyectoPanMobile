@@ -27,8 +27,9 @@ public partial class Login2 : ContentPage
                 await DisplayAlert("Error O.o", "Contraseñas no coinciden. Intente nuevamente", "Ok");
             }else
 			{
-
-			}
+                Preferences.Set("SesionIniciada", true);
+                await Navigation.PushModalAsync(new Inicio());
+            }
 		}catch (Exception ex)
 		{
 			await DisplayAlert("Error D:", ex.Message,"Ok");

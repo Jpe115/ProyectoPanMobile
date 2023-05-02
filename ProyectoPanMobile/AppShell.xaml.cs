@@ -1,4 +1,5 @@
-﻿using ProyectoPanMobile.Views;
+﻿using ProyectoPanMobile.Models;
+using ProyectoPanMobile.Views;
 
 namespace ProyectoPanMobile;
 
@@ -8,5 +9,6 @@ public partial class AppShell : Shell
 	{
 		InitializeComponent();
 		Routing.RegisterRoute(nameof(Login2), typeof(Login2));
+        Routing.RegisterRoute(nameof(Inicio), typeof(Inicio));
 	}
 }

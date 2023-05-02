@@ -27,7 +27,7 @@
 
         <Label Text="Contraseña"
                FontSize="Medium"
-               HorizontalTextAlignment="Start" BackgroundColor="#131313"/>
+               HorizontalTextAlignment="Start"/>
 
         <Entry Keyboard="Text" 
                x:Name="Contra"
