@@ -28,6 +28,7 @@ public partial class Login2 : ContentPage
             }else
 			{
                 Preferences.Set("SesionIniciada", true);
+				await DisplayAlert("Bien :D", "Cuenta creada exitosamente", "Ok");
                 await Navigation.PushModalAsync(new Inicio());
             }
 		}catch (Exception ex)

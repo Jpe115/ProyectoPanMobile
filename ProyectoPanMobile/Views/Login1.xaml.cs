@@ -1,5 +1,3 @@
-
-
 using CommunityToolkit.Maui.Core;
 using CommunityToolkit.Maui.Core.Platform;
 using Microsoft.Maui.Controls.Xaml;
