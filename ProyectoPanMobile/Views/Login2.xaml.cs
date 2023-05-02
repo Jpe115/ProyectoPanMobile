@@ -29,7 +29,7 @@ public partial class Login2 : ContentPage
 			{
                 Preferences.Set("SesionIniciada", true);
 				await DisplayAlert("Bien :D", "Cuenta creada exitosamente", "Ok");
-                await Navigation.PushModalAsync(new Inicio());
+                await Shell.Current.GoToAsync(nameof(Inicio));
             }
 		}catch (Exception ex)
 		{

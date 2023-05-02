@@ -9,7 +9,7 @@
                                StatusBarStyle="LightContent"/>
     </Page.Behaviors>
 
-    <VerticalStackLayout Padding="10"
+    <VerticalStackLayout Padding="10" 
                          Spacing="17"
                          Margin="17">
         <Image Source="bakery.png"

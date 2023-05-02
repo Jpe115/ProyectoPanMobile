@@ -16,7 +16,7 @@ public partial class App : Application
         var isAuthenticated = Preferences.Get("SesionIniciada",false);
         if (isAuthenticated)
         {
-            Application.Current.MainPage = new Inicio();
+            Application.Current.MainPage = new AppShell();
         }
         else
         {

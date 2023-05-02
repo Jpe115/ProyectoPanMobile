@@ -37,7 +37,7 @@
 
         <Label Text="Confirmar contraseña"
                FontSize="Medium"
-               HorizontalTextAlignment="Start"/>
+               HorizontalTextAlignment="Start"  />
 
         <Entry Keyboard="Text" 
                x:Name="Confirmar"
