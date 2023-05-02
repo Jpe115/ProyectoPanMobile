@@ -1,3 +1,5 @@
+using Microsoft.Maui.Controls;
+
 namespace ProyectoPanMobile.Views;
 
 public partial class Inicio : ContentPage
@@ -8,7 +10,7 @@ public partial class Inicio : ContentPage
 	}
     protected override bool OnBackButtonPressed()
     {
-        Application.Current.Quit();
+        Application.Current.CloseWindow(Window);
         return true;
     }
 }

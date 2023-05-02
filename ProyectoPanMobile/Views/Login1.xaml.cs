@@ -47,7 +47,7 @@ public partial class Login1 : ContentPage
     }
     protected override bool OnBackButtonPressed()
     {
-        Application.Current.Quit();
+        Application.Current.CloseWindow(Window);
         return true;
     }
 }
