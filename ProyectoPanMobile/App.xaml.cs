@@ -9,18 +9,19 @@ public partial class App : Application
 	{
 		InitializeComponent();
 
-        pagina();
+        MainPage = new AppShell();
+        Shell.Current.GoToAsync(nameof(Login1));
 	}
-    public void pagina()
+    /*public void pagina()
     {
         var isAuthenticated = Preferences.Get("SesionIniciada",false);
         if (isAuthenticated)
         {
-            Application.Current.MainPage = new AppShell();
+            MainPage = new AppShell();
         }
         else
         {
-            Application.Current.MainPage = new Login1();
+            MainPage = new Login1();
         }
-    }
+    }*/
 }

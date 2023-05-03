@@ -5,12 +5,53 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:local="clr-namespace:ProyectoPanMobile.Views"
     Shell.FlyoutBehavior="Flyout" 
-    xmlns:m="clr-namespace:CommunityToolkit.Maui;assembly=CommunityToolkit.Maui" >
+    xmlns:m="clr-namespace:CommunityToolkit.Maui;assembly=CommunityToolkit.Maui"  >
 
-    <ShellContent
+    <Shell.FlyoutHeader>
+        <VerticalStackLayout Padding="10" Spacing="8" 
+                            BackgroundColor="{AppThemeBinding Light={StaticResource SBlanco}, Dark={StaticResource SGris}}">
+            <HorizontalStackLayout>
+                <Image Source="bakery.png"
+                       HeightRequest="51"
+                       HorizontalOptions="Start"/>
+                <ImageButton Source="logout.png"
+                             x:Name="CerrarSesion"
+                             HeightRequest="30"
+                             HorizontalOptions="End"
+                             Clicked="CerrarSesion_Clicked"/>
+            </HorizontalStackLayout>
+            
+            <Label Text="Usuario Ejemplo"
+                   FontSize="Small"
+                   TextColor="{AppThemeBinding Light={StaticResource Black}, Dark={StaticResource Gray100}}"/>
+            <Label Text="Correo@ejemplo.com"
+                   FontSize="Small"
+                   TextColor="{AppThemeBinding Light={StaticResource Gray600}, Dark={StaticResource Gray100}}"/>
+        </VerticalStackLayout>
+    </Shell.FlyoutHeader>
+
+    <Shell.FlyoutFooter>
+        <HorizontalStackLayout Spacing="50" Padding="10">
+            <Label Text="Josué Palafox Encinas" HorizontalTextAlignment="Start"
+                   FontSize="Caption"
+                   HorizontalOptions="Start"/>
+            <Label Text="Proyecto PDM. 2023" HorizontalTextAlignment="End"
+                   FontSize="Caption"
+                   HorizontalOptions="End"/>
+        </HorizontalStackLayout>
+    </Shell.FlyoutFooter>
+    
+    <FlyoutItem Title="Inicio">
+        <ShellContent
+            Title="Bienvenido"
         ContentTemplate="{DataTemplate local:Inicio}"/>
+    </FlyoutItem>
 
-    <ShellContent
-        ContentTemplate="{DataTemplate local:Cuenta}"/>
+    <FlyoutItem Title="Cuenta">
+        <ShellContent
+            Title="Cuenta"
+        ContentTemplate="{DataTemplate local:Cuenta}"
+        Route="Cuenta"/>
+    </FlyoutItem>
 
 </Shell>

@@ -9,42 +9,43 @@
                                StatusBarStyle="LightContent"/>
     </Page.Behaviors>
 
-    <VerticalStackLayout Padding="10" 
+    <ScrollView>
+        <VerticalStackLayout Padding="10" 
                          Spacing="17"
                          Margin="17">
-        <Image Source="bakery.png"
+            <Image Source="bakery.png"
                HeightRequest="80"
                Margin="5"/>
-        
-        <Label 
+
+            <Label 
             Text="Proyecto Pan"
             FontSize="Large"
             VerticalOptions="Center" 
             HorizontalOptions="Center" 
             FontAttributes="Bold"/>
-        <Label />
+            <Label />
 
-        <Label Text="Correo electrónico o nombre de usuario"
+            <Label Text="Correo electrónico o nombre de usuario"
                FontSize="Title"
                HorizontalTextAlignment="Start" />
 
-        <Entry Keyboard="Email" 
+            <Entry Keyboard="Email" 
                x:Name="Correo"
                FontSize="Medium"
                HorizontalTextAlignment="Start" 
                HorizontalOptions="Fill" />
 
-        <Label Text="Contraseña"
+            <Label Text="Contraseña"
                FontSize="Title"
                HorizontalTextAlignment="Start"/>
 
-        <Entry Keyboard="Text" 
+            <Entry Keyboard="Text" 
                x:Name="Contra"
                FontSize="Medium"
                HorizontalTextAlignment="Start" 
                HorizontalOptions="Fill" />
 
-        <Button Text="Iniciar sesion"
+            <Button Text="Iniciar sesion"
                 x:Name="BtnIniciar"
                 Clicked="BtnIniciar_Clicked"
                 FontSize="Subtitle"
@@ -55,7 +56,7 @@
                 BorderWidth="1"
                 BorderColor="{AppThemeBinding Light={StaticResource Transparente}, Dark={StaticResource SBlanco}}"/>
 
-        <Button Text="Crear cuenta"
+            <Button Text="Crear cuenta"
                 x:Name="BtnCrear"
                 Clicked="BtnCrear_Clicked"
                 FontSize="Subtitle"
@@ -66,5 +67,6 @@
                 BorderWidth="1"
                 BorderColor="{AppThemeBinding Light={StaticResource Transparente}, Dark={StaticResource SBlanco}}"/>
 
-    </VerticalStackLayout>
+        </VerticalStackLayout>
+    </ScrollView>
 </ContentPage>

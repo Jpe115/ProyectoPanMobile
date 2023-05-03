@@ -3,49 +3,48 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ProyectoPanMobile.Views.Login2">
 
-    <VerticalStackLayout Padding="10"
-                         Spacing="17"
-                         Margin="17">
+    <ScrollView>
+        <VerticalStackLayout Padding="10" Spacing="17" Margin="17">
 
-        <Label 
+            <Label 
             Text="Crear cuenta"
             FontSize="Large"
             VerticalOptions="Center" 
             HorizontalOptions="Center" 
             FontAttributes="Bold"/>
-        <Label />
+            <Label />
 
-        <Label Text="Correo electrónico o nombre de usuario"
+            <Label Text="Correo electrónico o nombre de usuario"
                FontSize="Medium"
                HorizontalTextAlignment="Start"/>
 
-        <Entry x:Name="Correo"
+            <Entry x:Name="Correo"
                Keyboard="Email" 
                FontSize="Small"
                HorizontalTextAlignment="Start" 
                HorizontalOptions="Fill" />
 
-        <Label Text="Contraseña"
+            <Label Text="Contraseña"
                FontSize="Medium"
                HorizontalTextAlignment="Start"/>
 
-        <Entry Keyboard="Text" 
+            <Entry Keyboard="Text" 
                x:Name="Contra"
                FontSize="Small"
                HorizontalTextAlignment="Start" 
                HorizontalOptions="Fill" />
 
-        <Label Text="Confirmar contraseña"
+            <Label Text="Confirmar contraseña"
                FontSize="Medium"
                HorizontalTextAlignment="Start"  />
 
-        <Entry Keyboard="Text" 
+            <Entry Keyboard="Text" 
                x:Name="Confirmar"
                FontSize="Small"
                HorizontalTextAlignment="Start" 
                HorizontalOptions="Fill" />
 
-        <Button Text="Crear"
+            <Button Text="Crear"
                 x:Name="BtnCrear"
                 Clicked="BtnCrear_Clicked"
                 FontSize="Subtitle"
@@ -56,5 +55,6 @@
                 Padding="25,10"
                 BorderColor="{AppThemeBinding Light={StaticResource Transparente}, Dark={StaticResource SBlanco}}"/>
 
-    </VerticalStackLayout>
+        </VerticalStackLayout>
+    </ScrollView>
 </ContentPage>
