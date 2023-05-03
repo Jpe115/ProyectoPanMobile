@@ -4,12 +4,15 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
 
+    <Color x:Key="Prueba">#FCFCFC</Color>
+    <Color x:Key="Pruebaaa">#17859B</Color>
+    
     <Color x:Key="SGris">#131313</Color>
     <Color x:Key="SBlanco">#FCFCFC</Color>
     <Color x:Key="SAzul">#0080FF</Color>
     <Color x:Key="Transparente">transparent</Color>
 
-    <Color x:Key="Primary">#0080FF</Color>
+    <Color x:Key="Primary">#17859B</Color>
     <Color x:Key="Secondary">#DFD8F7</Color>
     <Color x:Key="Tertiary">#2B0B98</Color>
     <Color x:Key="White">White</Color>

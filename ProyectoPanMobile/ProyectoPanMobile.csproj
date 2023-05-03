@@ -32,10 +32,10 @@
 
 	<ItemGroup>
 		<!-- App Icon -->
-		<MauiIcon Include="Resources\AppIcon\appicon.svg" ForegroundFile="Resources\AppIcon\appiconfg.svg" Color="#0080FF" ForegroundScale="0.455" />
+		<MauiIcon Include="Resources\AppIcon\appicon.svg" ForegroundFile="Resources\AppIcon\appiconfg.svg" Color="#17859B" ForegroundScale="0.455" />
 
 		<!-- Splash Screen -->
-		<MauiSplashScreen Include="Resources\Splash\splash.svg" Color="#0080FF" BaseSize="96,89" />
+		<MauiSplashScreen Include="Resources\Splash\splash.svg" Color="#17859B" BaseSize="96,89" />
 
 		<!-- Images -->
 		<MauiImage Include="Resources\Images\*" />
@@ -58,6 +58,9 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <MauiXaml Update="Views\Carrito.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="Views\Cuenta.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>

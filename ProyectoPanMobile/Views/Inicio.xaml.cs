@@ -18,4 +18,9 @@ public partial class Inicio : ContentPage
     {
         Preferences.Set("SesionIniciada", false);
     }
+
+    private async void Cart_Clicked(object sender, EventArgs e)
+    {
+        await Shell.Current.GoToAsync(nameof(Carrito));
+    }
 }
