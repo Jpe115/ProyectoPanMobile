@@ -18,5 +18,9 @@ public partial class AppShell : Shell
     private async void CerrarSesion_Clicked(object sender, EventArgs e)
     {
         bool answer = await DisplayAlert("¿Desea cerrar sesión?", null , "Cerrar", "Mantener");
+        if (answer) {
+            Preferences.Set("SesionIniciada", false);
+            await Navigation.PushModalAsync(new Login1());
+        }
     }
 }
