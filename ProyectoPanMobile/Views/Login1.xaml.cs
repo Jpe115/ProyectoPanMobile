@@ -41,7 +41,7 @@ public partial class Login1 : ContentPage
 
     private async void BtnCrear_Clicked(object sender, EventArgs e)
     {
-        await Navigation.PushModalAsync(new Login2());
+        await Shell.Current.GoToAsync(nameof(Login2));
     }
     protected override bool OnBackButtonPressed()
     {

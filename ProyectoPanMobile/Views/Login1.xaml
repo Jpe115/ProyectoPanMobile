@@ -10,7 +10,7 @@
     </Page.Behaviors>
 
     <ScrollView>
-        <VerticalStackLayout Padding="10" 
+        <VerticalStackLayout Padding="10,0" 
                          Spacing="17"
                          Margin="17">
             <Image Source="bakery.png"

@@ -4,7 +4,7 @@
              x:Class="ProyectoPanMobile.Views.Login2">
 
     <ScrollView>
-        <VerticalStackLayout Padding="10" Spacing="17" Margin="17">
+        <VerticalStackLayout Padding="10,0" Spacing="17" Margin="17">
 
             <Label 
             Text="Crear cuenta"

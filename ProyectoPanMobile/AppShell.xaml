@@ -8,7 +8,7 @@
     xmlns:m="clr-namespace:CommunityToolkit.Maui;assembly=CommunityToolkit.Maui"  >
 
     <Shell.FlyoutHeader>
-        <VerticalStackLayout Padding="10" Spacing="8" 
+        <VerticalStackLayout Padding="13" Spacing="8" 
                             BackgroundColor="{AppThemeBinding Light={StaticResource SBlanco}, Dark={StaticResource SGris}}">
             <HorizontalStackLayout>
                 <Image Source="bakery.png"
@@ -31,7 +31,7 @@
     </Shell.FlyoutHeader>
 
     <Shell.FlyoutFooter>
-        <HorizontalStackLayout Spacing="50" Padding="10">
+        <HorizontalStackLayout Spacing="50" Padding="13">
             <Label Text="Josué Palafox Encinas" HorizontalTextAlignment="Start"
                    FontSize="Caption"
                    HorizontalOptions="Start"/>
@@ -41,13 +41,13 @@
         </HorizontalStackLayout>
     </Shell.FlyoutFooter>
     
-    <FlyoutItem Title="Inicio">
+    <FlyoutItem Title="Inicio" Icon="home.png">
         <ShellContent
             Title="Bienvenido"
         ContentTemplate="{DataTemplate local:Inicio}"/>
     </FlyoutItem>
 
-    <FlyoutItem Title="Cuenta">
+    <FlyoutItem Title="Cuenta" Icon="user.png">
         <ShellContent
             Title="Cuenta"
         ContentTemplate="{DataTemplate local:Cuenta}"
