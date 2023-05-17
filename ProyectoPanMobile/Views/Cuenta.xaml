@@ -48,7 +48,27 @@
             <Label Text="Foto de perfil"
                FontSize="Medium"
                HorizontalTextAlignment="Start"  />
-            
+
+            <Label Text="Número de teléfono"
+               FontSize="Medium"
+               HorizontalTextAlignment="Start"  />
+
+            <Entry Keyboard="Telephone" 
+               x:Name="Telefono"
+               FontSize="Small"
+               HorizontalTextAlignment="Start" 
+               HorizontalOptions="Fill" />
+
+            <Label Text="Dirección de entrega"
+               FontSize="Medium"
+               HorizontalTextAlignment="Start"  />
+
+            <Entry Keyboard="Text" 
+               x:Name="Direccion"
+               FontSize="Small"
+               HorizontalTextAlignment="Start" 
+               HorizontalOptions="Fill" />
+
             <Button Text="Guardar cambios"
                 x:Name="BtnGuardar"
                 
