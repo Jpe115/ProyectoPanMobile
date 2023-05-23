@@ -21,6 +21,10 @@ public partial class Inicio : ContentPage
         return true;
     }
 
-
+    protected async override void OnAppearing()
+    {
+        base.OnAppearing();
+        await viewModel.CargarPanes();
+    }
 
 }

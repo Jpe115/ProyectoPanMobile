@@ -15,7 +15,10 @@ using System.Collections.ObjectModel;
 namespace ProyectoPanMobile.ViewModels
 {
     public partial class InicioViewModel: ObservableObject
-    { 
+    {
+        //[ObservableProperty]
+        //private Panes panes;
+
         public ObservableCollection<Panes> panesList { get; set; } 
 
         public InicioViewModel()
