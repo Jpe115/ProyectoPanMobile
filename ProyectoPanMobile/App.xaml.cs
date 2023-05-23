@@ -1,5 +1,7 @@
-﻿using ProyectoPanMobile.Models;
+﻿using ProyectoPanMobile.Data;
+using ProyectoPanMobile.Models;
 using ProyectoPanMobile.Views;
+using System.Reflection;
 
 namespace ProyectoPanMobile;
 
@@ -11,17 +13,19 @@ public partial class App : Application
 
         MainPage = new AppShell();
         Shell.Current.GoToAsync(nameof(Login1));
+		VersionTracking.Track();
+		if (VersionTracking.IsFirstLaunchEver)
+		{
+			var assembly = IntrospectionExtensions.GetTypeInfo(typeof(App)).Assembly;
+			using (Stream stream = assembly.GetManifestResourceStream("ProyectoPanMobile.pan.db"))
+			{
+				using (MemoryStream memoryStream = new MemoryStream())
+				{
+					stream.CopyTo(memoryStream);
+					File.WriteAllBytes(PanRepository.DbPath,memoryStream.ToArray());
+				}
+			}
+		}
 	}
-    /*public void pagina()
-    {
-        var isAuthenticated = Preferences.Get("SesionIniciada",false);
-        if (isAuthenticated)
-        {
-            MainPage = new AppShell();
-        }
-        else
-        {
-            MainPage = new Login1();
-        }
-    }*/
+    
 }

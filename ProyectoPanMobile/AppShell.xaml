@@ -31,10 +31,7 @@
     </Shell.FlyoutHeader>
 
     <Shell.FlyoutFooter>
-        <HorizontalStackLayout Spacing="50" Padding="13">
-            <Label Text="Josué Palafox Encinas" HorizontalTextAlignment="Start"
-                   FontSize="Caption"
-                   HorizontalOptions="Start"/>
+        <HorizontalStackLayout Padding="13">
             <Label Text="Proyecto PDM. 2023" HorizontalTextAlignment="End"
                    FontSize="Caption"
                    HorizontalOptions="End"/>

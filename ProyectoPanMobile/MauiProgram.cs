@@ -1,5 +1,6 @@
 ﻿using CommunityToolkit.Maui;
 using Microsoft.Extensions.Logging;
+using ProyectoPanMobile.ViewModels;
 using ProyectoPanMobile.Views;
 
 namespace ProyectoPanMobile;
@@ -18,6 +19,9 @@ public static class MauiProgram
 				fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
 			});
 		builder.Services.AddSingleton<Inicio>();
+		builder.Services.AddSingleton<InicioViewModel>();
+		builder.Services.AddSingleton<Carrito>();
+		builder.Services.AddSingleton<Cuenta>();
 #if DEBUG
 		builder.Logging.AddDebug();
 #endif

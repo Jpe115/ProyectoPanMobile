@@ -1,26 +1,26 @@
 using Microsoft.Maui.Controls;
+using ProyectoPanMobile.Data;
+using ProyectoPanMobile.Models;
+using ProyectoPanMobile.ViewModels;
+using System.Collections.ObjectModel;
 
 namespace ProyectoPanMobile.Views;
 
 public partial class Inicio : ContentPage
 {
+    InicioViewModel viewModel;
+    
 	public Inicio()
 	{
 		InitializeComponent();
-	}
+        BindingContext = viewModel = new InicioViewModel();
+    }
     protected override bool OnBackButtonPressed()
     {
         Application.Current.CloseWindow(Window);
         return true;
     }
 
-    private void Button_Clicked(object sender, EventArgs e)
-    {
-        Preferences.Set("SesionIniciada", false);
-    }
 
-    private async void Cart_Clicked(object sender, EventArgs e)
-    {
-        await Shell.Current.GoToAsync(nameof(Carrito));
-    }
+
 }

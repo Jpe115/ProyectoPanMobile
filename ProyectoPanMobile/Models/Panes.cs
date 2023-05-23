@@ -13,5 +13,6 @@ namespace ProyectoPanMobile.Models
         public int PanID { get; set; }
         public string NombrePan { get; set; }
         public string Descripcion { get; set; }
+        public int Precio { get; set; }
     }
 }
