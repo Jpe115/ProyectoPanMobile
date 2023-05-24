@@ -43,7 +43,7 @@
                                 </VerticalStackLayout>
                             </HorizontalStackLayout>
                             <Frame.GestureRecognizers>
-                                <TapGestureRecognizer Command="{Binding Source={x:RelativeSource AncestorType={x:Type local:InicioViewModel}}, Path=algoCommand}" CommandParameter="{Binding .  }"/>
+                                <TapGestureRecognizer Command="{Binding Source={x:RelativeSource AncestorType={x:Type local:InicioViewModel}}, Path=DetallesDelPanCommand}" CommandParameter="{Binding .  }"/>
                             </Frame.GestureRecognizers>
                         </Frame>
                     </DataTemplate>

@@ -13,7 +13,7 @@ public partial class Inicio : ContentPage
 	public Inicio()
 	{
 		InitializeComponent();
-        BindingContext = viewModel = new InicioViewModel();
+        BindingContext = viewModel = new InicioViewModel(Navigation);
     }
     protected override bool OnBackButtonPressed()
     {

@@ -21,10 +21,11 @@ namespace ProyectoPanMobile.ViewModels
 
         public ObservableCollection<PanesConFoto> panesconfotoList { get; set; } 
         
-
-        public InicioViewModel()
+        public INavigation Navigation { get; set; }
+        public InicioViewModel(INavigation navigation)
         {
            panesconfotoList = new ObservableCollection<PanesConFoto>();
+            Navigation = navigation;
         }
 
         [RelayCommand]
@@ -56,9 +57,9 @@ namespace ProyectoPanMobile.ViewModels
         }
 
         [RelayCommand]
-        public async Task DetallesDelPan()
+        public async Task DetallesDelPan(PanesConFoto pancito)
         {
-
+            await Navigation.PushAsync(new DetallesPage(pancito));
         }
     }
 }

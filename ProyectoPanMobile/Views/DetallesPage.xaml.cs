@@ -1,13 +1,16 @@
+using ProyectoPanMobile.Models;
 using ProyectoPanMobile.ViewModels;
 
 namespace ProyectoPanMobile.Views;
 
 public partial class DetallesPage : ContentPage
 {
-	DetallesPageViewModel viewModel;
-	public DetallesPage()
+	public PanesConFoto Panes { get; set; }
+
+	public DetallesPage(PanesConFoto pancito)
 	{
 		InitializeComponent();
-		//BindingContext = viewModel = new DetallesPageViewModel(panecito);
-	}
+		this.BindingContext = new DetallesPageViewModel();
+        ((DetallesPageViewModel)BindingContext).Panecito = pancito;
+    }
 }

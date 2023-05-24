@@ -10,10 +10,10 @@ namespace ProyectoPanMobile.ViewModels
 {
     public partial class DetallesPageViewModel: ObservableObject
     {
-        //[ObservableObject]
-        public PanesConFoto panecito;
+        [ObservableProperty]
+        private PanesConFoto panecito;
 
-        public DetallesPageViewModel(PanesConFoto panecito) {
+        public DetallesPageViewModel() {
             panecito = new PanesConFoto();
         }
     }

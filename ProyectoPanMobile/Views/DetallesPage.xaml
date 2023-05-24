@@ -4,24 +4,26 @@
              x:Class="ProyectoPanMobile.Views.DetallesPage"
              xmlns:local="clr-namespace:ProyectoPanMobile.ViewModels"
              xmlns:models="clr-namespace:ProyectoPanMobile.Models"
-             Title="DetallesPage">
-    <VerticalStackLayout>
-        <Image Source="{Binding imagensource}" HeightRequest="150"/>
+             x:DataType="local:DetallesPageViewModel"
+             Title="Detalles">
+    
+    <VerticalStackLayout Margin="15,25" Spacing="7">
+        <Image Source="{Binding Panecito.imagensource}" HeightRequest="160"/>
         <Label 
-            Text="{Binding pan.NombrePan}" FontAttributes="Bold" FontSize="Title"
-            HorizontalOptions="Center" />
+            Text="{Binding Panecito.pan.NombrePan}" FontAttributes="Bold" FontSize="Title"
+            HorizontalOptions="Start" />
         
-        <Label Text="{Binding pan.Precio}" FontAttributes="Bold" FontSize="Medium"/>
+        <Label Text="{Binding Panecito.pan.Precio}" FontAttributes="Bold" FontSize="Medium"/>
 
-        <Label Text="{Binding pan.Descripcion}" FontSize="Medium"/>
+        <Label Text="{Binding Panecito.pan.Descripcion}" FontSize="Medium" HorizontalOptions="Fill"/>
 
         <Button Text="Agregar"
                 x:Name="BtnAgregar"
                 FontSize="Subtitle"
                 CornerRadius="13"
                 HorizontalOptions="Center"
-                Margin="5"
-                Padding="16,0"
+                Margin="10"
+                Padding="26,0"
                 BorderWidth="1"
                 BorderColor="{AppThemeBinding Light={StaticResource Transparente}, Dark={StaticResource SBlanco}}"/>
     </VerticalStackLayout>
