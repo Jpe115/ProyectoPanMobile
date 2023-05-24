@@ -2,7 +2,11 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ProyectoPanMobile.Views.Carrito"
-             Title="Carrito">
+             xmlns:local="clr-namespace:ProyectoPanMobile.ViewModels"
+             xmlns:models="clr-namespace:ProyectoPanMobile.Models"
+             x:DataType="local:CarritoViewModel"
+             Title="Carrito de pasteles">
+    
     <ScrollView>
         <VerticalStackLayout Padding="10,5" 
                          Spacing="17"
