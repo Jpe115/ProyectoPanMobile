@@ -19,11 +19,12 @@ namespace ProyectoPanMobile.ViewModels
         //[ObservableProperty]
         //private Panes panes;
 
-        public ObservableCollection<Panes> panesList { get; set; } 
+        public ObservableCollection<PanesConFoto> panesconfotoList { get; set; } 
+        
 
         public InicioViewModel()
         {
-           panesList = new ObservableCollection<Panes>();
+           panesconfotoList = new ObservableCollection<PanesConFoto>();
         }
 
         [RelayCommand]
@@ -38,18 +39,26 @@ namespace ProyectoPanMobile.ViewModels
         {
             await Shell.Current.GoToAsync(nameof(Carrito));
         }
-        PanRepository panRepository = new PanRepository();
 
+        PanRepository panRepository = new PanRepository();
+        string[] fotos = { "pastel3leches.jpg", "pastelfrutosrojos.png", "pasteldechocolate.png",
+        "pastelvainillanuez.png", "paydequeso.jpg", "paydemanzana.jpg", "paydefresa.jpg", "paydeoreo.jpg"};
         [RelayCommand]
         public async Task CargarPanes()
         {
-            panesList.Clear();
+            panesconfotoList.Clear();
             var listita = await panRepository.PanesLista();
-            foreach (var pan in listita)
+            for (int i=0; i<listita.Count;i++)
             {
-                panesList.Add(pan);
+                PanesConFoto panecitos = new PanesConFoto() { pan = listita[i], imagensource = fotos[i] };
+                panesconfotoList.Add(panecitos);
             }
         }
-        
-}
+
+        [RelayCommand]
+        public async Task DetallesDelPan()
+        {
+
+        }
+    }
 }

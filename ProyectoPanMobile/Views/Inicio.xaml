@@ -29,19 +29,27 @@
     </ContentPage.ToolbarItems>
 
     <RefreshView x:DataType="local:InicioViewModel" Command="{Binding CargarPanesCommand}">
-        <VerticalStackLayout>
-            <CollectionView ItemsSource="{Binding panesList}">
+        <ScrollView>
+            <CollectionView ItemsSource="{Binding panesconfotoList}">
                 <CollectionView.ItemTemplate>
-                    <DataTemplate x:DataType="models:Panes">
-                        <HorizontalStackLayout BackgroundColor="{AppThemeBinding Dark={StaticResource Gray500},Light={StaticResource Gray100}}" Margin="10" Spacing="20">
-
-                            <Label Text="{Binding NombrePan}" FontAttributes="Bold" FontSize="Subtitle"/>
-                            <Label Text="{Binding Precio}"/>
-                        </HorizontalStackLayout>
+                    <DataTemplate x:DataType="models:PanesConFoto">
+                        <Frame BackgroundColor="{AppThemeBinding Dark={StaticResource Gray600}, Light={StaticResource Gray100}}" BorderColor="{AppThemeBinding Light={StaticResource Transparente}}"  
+                               CornerRadius="21" Margin="8,3,10,0">
+                            <HorizontalStackLayout BackgroundColor="{StaticResource Transparente}" Margin="1" Spacing="15">
+                                <Image Source="{Binding imagensource}" HeightRequest="100" WidthRequest="140" MaximumHeightRequest="100" MaximumWidthRequest="100"/>
+                                <VerticalStackLayout Margin="0,15,0,0">
+                                    <Label Text="{Binding pan.NombrePan}" FontAttributes="Bold" FontSize="Medium"/>
+                                    <Label Text="{Binding pan.Precio}" FontSize="Medium"/>
+                                </VerticalStackLayout>
+                            </HorizontalStackLayout>
+                            <Frame.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding Source={x:RelativeSource AncestorType={x:Type local:InicioViewModel}}, Path=algoCommand}" CommandParameter="{Binding .  }"/>
+                            </Frame.GestureRecognizers>
+                        </Frame>
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
             </CollectionView>
-        </VerticalStackLayout>
+        </ScrollView>
     </RefreshView>
     
     
