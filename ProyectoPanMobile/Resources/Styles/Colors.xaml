@@ -7,7 +7,7 @@
     <Color x:Key="Prueba">#FCFCFC</Color>
     <Color x:Key="Pruebaaa">#17859B</Color>
     
-    <Color x:Key="SGris">#131313</Color>
+    <Color x:Key="SGris">#1F1F1F</Color>
     <Color x:Key="SBlanco">#FCFCFC</Color>
     <Color x:Key="SAzul">#0080FF</Color>
     <Color x:Key="Transparente">transparent</Color>
