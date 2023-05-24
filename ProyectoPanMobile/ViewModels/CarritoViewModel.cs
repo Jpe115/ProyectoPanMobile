@@ -10,23 +10,26 @@ using System.Threading.Tasks;
 
 namespace ProyectoPanMobile.ViewModels
 {
+    [QueryProperty(name:"listacompras","listacompras")]
     public partial class CarritoViewModel : ObservableObject
     {
         public ObservableCollection<PanesConFoto> panesconfotoList { get; set; }
-        public List<PanesConFoto> panesLista { get; set; }
+        [ObservableProperty]
+        public List<PanesConFoto> panesLista;
 
-        public CarritoViewModel(List<PanesConFoto> panesLizta)
+        public CarritoViewModel()
         {
-            panesconfotoList = new ObservableCollection<PanesConFoto>();
-            panesLista = panesLizta;
+
         }
+
+        
 
         public async Task CargarPanes()
         {
             await Task.Run(() =>
             {
                 panesconfotoList.Clear();
-                foreach (var panecitos in panesLista)
+                foreach (var panecitos in PanesLista)
                 {
                     panesconfotoList.Add(panecitos);
                 }

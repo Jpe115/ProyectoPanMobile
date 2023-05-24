@@ -1,4 +1,5 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Mvvm.Input;
 using ProyectoPanMobile.Models;
 using System;
 using System.Collections.Generic;
@@ -8,13 +9,23 @@ using System.Threading.Tasks;
 
 namespace ProyectoPanMobile.ViewModels
 {
+    [QueryProperty("Panecito", "Panecito")]
     public partial class DetallesPageViewModel: ObservableObject
     {
         [ObservableProperty]
-        private PanesConFoto panecito;
+        PanesConFoto panecito;
 
         public DetallesPageViewModel() {
-            panecito = new PanesConFoto();
+            
+        }
+
+        [RelayCommand]
+        public async Task Mandar(PanesConFoto pan)
+        {
+            await Shell.Current.GoToAsync("..",true,new Dictionary<string, object>
+            {
+                ["Pan"] = pan
+            });
         }
     }
 }

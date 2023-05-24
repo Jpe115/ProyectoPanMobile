@@ -5,12 +5,12 @@ namespace ProyectoPanMobile.Views;
 
 public partial class DetallesPage : ContentPage
 {
-	public PanesConFoto Panes { get; set; }
+	
 
-	public DetallesPage(PanesConFoto pancito)
+	public DetallesPage(DetallesPageViewModel vm)
 	{
 		InitializeComponent();
-		this.BindingContext = new DetallesPageViewModel();
-        ((DetallesPageViewModel)BindingContext).Panecito = pancito;
+		BindingContext = vm;
+        
     }
 }

@@ -5,11 +5,10 @@ namespace ProyectoPanMobile.Views;
 
 public partial class Carrito : ContentPage
 {
-    public PanesConFoto Panes { get; set; }
 
-    public Carrito(List<PanesConFoto> panesLista)
+    public Carrito(CarritoViewModel vm)
 	{
 		InitializeComponent();
-		this.BindingContext = new CarritoViewModel(panesLista);
+		BindingContext = vm;
     }
 }

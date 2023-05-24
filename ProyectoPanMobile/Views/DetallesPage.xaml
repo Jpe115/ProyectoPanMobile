@@ -14,12 +14,14 @@
             Text="{Binding Panecito.pan.NombrePan}" FontAttributes="Bold" FontSize="Title"
             HorizontalOptions="Start" />
         
-        <Label Text="{Binding Panecito.pan.Precio}" FontAttributes="Bold" FontSize="Medium"/>
+        <Label Text="{Binding Panecito.pan.Precio,StringFormat='${0}'}" FontAttributes="Bold" FontSize="Medium"/>
 
         <Label Text="{Binding Panecito.pan.Descripcion}" FontSize="Medium" HorizontalOptions="Fill"/>
 
         <Button Text="Agregar"
                 x:Name="BtnAgregar"
+                Command="{Binding MandarCommand}"
+                CommandParameter="{Binding Panecito}"
                 FontSize="Subtitle"
                 CornerRadius="13"
                 HorizontalOptions="Center"

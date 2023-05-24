@@ -1,5 +1,6 @@
 ﻿using CommunityToolkit.Maui;
 using Microsoft.Extensions.Logging;
+using ProyectoPanMobile.Data;
 using ProyectoPanMobile.ViewModels;
 using ProyectoPanMobile.Views;
 
@@ -20,8 +21,12 @@ public static class MauiProgram
 			});
 		builder.Services.AddSingleton<Inicio>();
 		builder.Services.AddSingleton<InicioViewModel>();
-		builder.Services.AddSingleton<Carrito>();
+		builder.Services.AddTransient<DetallesPage>();
+		builder.Services.AddTransient<DetallesPageViewModel>();
+		builder.Services.AddTransient<Carrito>();
+		builder.Services.AddTransient<CarritoViewModel>();
 		builder.Services.AddSingleton<Cuenta>();
+		//builder.Services.AddTransient<PanRepository,PanRepository>();
 #if DEBUG
 		builder.Logging.AddDebug();
 #endif

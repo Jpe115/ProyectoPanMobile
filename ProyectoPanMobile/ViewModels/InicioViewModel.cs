@@ -14,18 +14,21 @@ using System.Collections.ObjectModel;
 
 namespace ProyectoPanMobile.ViewModels
 {
+    [QueryProperty(name: "listacompras", queryId:"listacompras")]
     public partial class InicioViewModel: ObservableObject
     {
+        [ObservableProperty]
+        public List<PanesConFoto> listacompras;
+
         //[ObservableProperty]
-        //private Panes panes;
+        //public PanesConFoto pancito;
 
         public ObservableCollection<PanesConFoto> panesconfotoList { get; set; } 
         
-        public INavigation Navigation { get; set; }
-        public InicioViewModel(INavigation navigation)
+        public InicioViewModel()
         {
-           panesconfotoList = new ObservableCollection<PanesConFoto>();
-            Navigation = navigation;
+            panesconfotoList = new ObservableCollection<PanesConFoto>();
+           
         }
 
         [RelayCommand]
@@ -36,14 +39,18 @@ namespace ProyectoPanMobile.ViewModels
         }
 
         [RelayCommand]
-        private async Task Cart()
+        private async Task Cart(List<PanesConFoto> listacompras)
         {
-            await Shell.Current.GoToAsync(nameof(Carrito));
+            await Shell.Current.GoToAsync(nameof(Carrito),true, new Dictionary<string, object>
+            {
+                ["listacompras"] = listacompras
+            });
         }
 
         PanRepository panRepository = new PanRepository();
         string[] fotos = { "pastel3leches.jpg", "pastelfrutosrojos.png", "pasteldechocolate.png",
         "pastelvainillanuez.png", "paydequeso.jpg", "paydemanzana.jpg", "paydefresa.jpg", "paydeoreo.jpg"};
+        
         [RelayCommand]
         public async Task CargarPanes()
         {
@@ -57,9 +64,12 @@ namespace ProyectoPanMobile.ViewModels
         }
 
         [RelayCommand]
-        public async Task DetallesDelPan(PanesConFoto pancito)
+        public async Task DetallesDelPan(PanesConFoto Panecito)
         {
-            await Navigation.PushAsync(new DetallesPage(pancito));
+            await Shell.Current.GoToAsync(nameof(DetallesPage),new Dictionary<string, object>
+            {
+                ["Panecito"] = Panecito
+            });
         }
     }
 }

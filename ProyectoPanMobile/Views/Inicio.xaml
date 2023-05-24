@@ -20,14 +20,14 @@
             IconImageSource="carrito.svg" 
             Order="Primary"
             Priority="2"
-            Command="{Binding CartCommand}"/>
+            Command="{Binding Source={x:RelativeSource AncestorType={x:Type local:InicioViewModel}}, Path=CartCommand}" CommandParameter="{Binding Path=listacompras}"/>
         <ToolbarItem 
             x:Name="Find"
             Text="Buscar"
             IconImageSource="search.png"
             Priority="0"/>
     </ContentPage.ToolbarItems>
-
+    
     <RefreshView x:DataType="local:InicioViewModel" Command="{Binding CargarPanesCommand}">
         <ScrollView>
             <CollectionView ItemsSource="{Binding panesconfotoList}">
@@ -39,7 +39,7 @@
                                 <Image Source="{Binding imagensource}" HeightRequest="100" WidthRequest="140" MaximumHeightRequest="100" MaximumWidthRequest="100"/>
                                 <VerticalStackLayout Margin="0,15,0,0">
                                     <Label Text="{Binding pan.NombrePan}" FontAttributes="Bold" FontSize="Medium"/>
-                                    <Label Text="{Binding pan.Precio}" FontSize="Medium"/>
+                                    <Label Text="{Binding pan.Precio,StringFormat='${0}'}" FontSize="Medium"/>
                                 </VerticalStackLayout>
                             </HorizontalStackLayout>
                             <Frame.GestureRecognizers>
