@@ -48,11 +48,25 @@ namespace ProyectoPanMobile.ViewModels
         [RelayCommand]
         public async Task CargarPanes()
         {
-            panesList.Clear();
-            var listita = await panRepository.PanesLista();
-            foreach(var pan in listita)
+            if (Preferences.Get("C",false))
             {
-                panesList.Add(pan);
+                panesList.Clear();
+                var listita = await panRepository.PanesLista();
+                foreach (var pan in listita)
+                {
+                    panesList.Add(pan);
+                }
+            }
+            else
+            {
+                panesList.Clear();
+                var listita = await panRepository.PanesLista();
+                foreach (var pan in listita)
+                {
+                    panesList.Add(pan);
+                }
+                await panRepository.ActualizarImagenes(fotos);
+                Preferences.Set("C", true);
             }
         }
 

@@ -7,6 +7,16 @@
              x:DataType="local:CarritoViewModel"
              Title="Carrito de pasteles">
 
+    <ContentPage.ToolbarItems>
+        <ToolbarItem 
+            x:Name="PagarCarrito" 
+            Text="Pagar" 
+            IconImageSource="pago.png" 
+            Order="Primary"
+            Clicked="Pagar"
+            />
+    </ContentPage.ToolbarItems>
+
     <ScrollView>
         <CollectionView ItemsSource="{Binding panesList}">
             <CollectionView.ItemTemplate>
@@ -20,9 +30,6 @@
                                 <Label Text="{Binding Precio,StringFormat='${0}'}" FontSize="Medium"/>
                             </VerticalStackLayout>
                         </HorizontalStackLayout>
-                        <Frame.GestureRecognizers>
-                            <TapGestureRecognizer Command="{Binding Source={x:RelativeSource AncestorType={x:Type local:InicioViewModel}}, Path=DetallesDelPanCommand}" CommandParameter="{Binding .  }"/>
-                        </Frame.GestureRecognizers>
                     </Frame>
                 </DataTemplate>
             </CollectionView.ItemTemplate>

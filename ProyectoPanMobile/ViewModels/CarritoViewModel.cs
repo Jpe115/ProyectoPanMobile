@@ -16,11 +16,23 @@ namespace ProyectoPanMobile.ViewModels
 
         public CarritoViewModel()
         {
-
+            panesList = new ObservableCollection<PanesCarrito>();
         }
 
+        string[] fotos = { "pastel3leches.jpg", "pastelfrutosrojos.png", "pasteldechocolate.png",
+        "pastelvainillanuez.png", "paydequeso.jpg", "paydemanzana.jpg", "paydefresa.jpg", "paydeoreo.jpg"};
 
         PanRepository panRepository = new PanRepository();
+        public async Task CargarCarrito(string[] fotos)
+        {
+            panesList.Clear();
+            var listita = await panRepository.Carrito();
+            foreach (var panecitos in listita)
+            {
+                panesList.Add(panecitos);
+            }
+            await panRepository.ImgsACarrito(fotos);
+        }
         public async Task CargarCarrito()
         {
             panesList.Clear();

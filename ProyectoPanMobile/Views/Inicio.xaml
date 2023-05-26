@@ -19,7 +19,6 @@
             Text="Carrito" 
             IconImageSource="carrito.svg" 
             Order="Primary"
-            Priority="2"
             Command="{Binding Source={x:RelativeSource AncestorType={x:Type local:InicioViewModel}}, Path=CartCommand}" />
         
     </ContentPage.ToolbarItems>
@@ -33,7 +32,7 @@
                         <HorizontalStackLayout BackgroundColor="{StaticResource Transparente}" Margin="1" Spacing="15">
                             <Image Source="{Binding Imagen}" HeightRequest="100" WidthRequest="140" MaximumHeightRequest="100" MaximumWidthRequest="100"/>
                             <VerticalStackLayout Margin="0,15,0,0" InputTransparent="False">
-                                <Label Text="{Binding NombrePan}" FontAttributes="Bold" FontSize="Medium"/>
+                                <Label Text="{Binding NombrePan}" FontAttributes="Bold" FontSize="Medium" MaxLines="2"/>
                                 <Label Text="{Binding Precio,StringFormat='${0}'}" FontSize="Medium"/>
                             </VerticalStackLayout>
                         </HorizontalStackLayout>
