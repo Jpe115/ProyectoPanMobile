@@ -72,6 +72,12 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <Compile Update="Views\Carrito.xaml.cs">
+	    <DependentUpon>Carrito.xaml</DependentUpon>
+	  </Compile>
+	</ItemGroup>
+
+	<ItemGroup>
 	  <MauiXaml Update="Views\Carrito.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>

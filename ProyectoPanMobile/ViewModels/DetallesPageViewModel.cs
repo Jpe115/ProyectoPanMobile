@@ -1,5 +1,6 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
+using ProyectoPanMobile.Data;
 using ProyectoPanMobile.Models;
 using ProyectoPanMobile.Views;
 using System;
@@ -20,9 +21,11 @@ namespace ProyectoPanMobile.ViewModels
             
         }
 
+        PanRepository panRepository = new PanRepository();
         [RelayCommand]
         public async Task Mandar()
         {
+            await panRepository.AgregarAlCarrito(Panecito, 1);
             await Shell.Current.GoToAsync("..", true);
         }
     }

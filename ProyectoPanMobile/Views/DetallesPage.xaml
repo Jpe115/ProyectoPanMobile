@@ -21,7 +21,7 @@
         <Button Text="Agregar"
                 x:Name="BtnAgregar"
                 Command="{Binding MandarCommand}"
-                CommandParameter="{Binding Panecito}"
+                
                 FontSize="Subtitle"
                 CornerRadius="13"
                 HorizontalOptions="Center"
