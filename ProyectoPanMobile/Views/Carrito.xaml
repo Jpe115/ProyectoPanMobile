@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ProyectoPanMobile.Views.Carrito"
+             xmlns:local="clr-namespace:ProyectoPanMobile.ViewModels"
+             xmlns:models="clr-namespace:ProyectoPanMobile.Models"
+             x:DataType="local:CarritoViewModel"
+             Title="Carrito de pasteles">
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem 
+            x:Name="PagarCarrito" 
+            Text="Pagar" 
+            IconImageSource="pago.png" 
+            Order="Primary"
+            Clicked="Pagar"
+            />
+    </ContentPage.ToolbarItems>
+
+    <ScrollView>
+        <CollectionView ItemsSource="{Binding panesList}">
+            <CollectionView.ItemTemplate>
+                <DataTemplate x:DataType="models:PanesCarrito">
+                    <Frame BackgroundColor="{AppThemeBinding Dark={StaticResource Gray600}, Light={StaticResource Gray100}}" BorderColor="{AppThemeBinding Light={StaticResource Transparente}}"  
+                               CornerRadius="21" Margin="8,3,10,0">
+                        <HorizontalStackLayout BackgroundColor="{StaticResource Transparente}" Margin="1" Spacing="15">
+                            <Image Source="{Binding Imagen}" HeightRequest="100" WidthRequest="140" MaximumHeightRequest="100" MaximumWidthRequest="100"/>
+                            <VerticalStackLayout Margin="0,15,0,0">
+                                <Label Text="{Binding NombrePan}" FontAttributes="Bold" FontSize="Medium"/>
+                                <Label Text="{Binding Precio,StringFormat='${0}'}" FontSize="Medium"/>
+                            </VerticalStackLayout>
+                        </HorizontalStackLayout>
+                    </Frame>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </ScrollView>
+</ContentPage>

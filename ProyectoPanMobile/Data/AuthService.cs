@@ -4,9 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ProyectoPanMobile.Models
+namespace ProyectoPanMobile.Data
 {
-    public class DB
+    public class AuthService
     {
+        
     }
 }

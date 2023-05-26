@@ -2,54 +2,72 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ProyectoPanMobile.Views.Login1"
+             Shell.NavBarIsVisible="False"
              xmlns:mct="clr-namespace:CommunityToolkit.Maui.Behaviors;assembly=CommunityToolkit.Maui">
 
     <Page.Behaviors>
-        <mct:StatusBarBehavior StatusBarColor="#005BFF" StatusBarStyle="LightContent"/>
+        <mct:StatusBarBehavior StatusBarColor="{AppThemeBinding Dark={StaticResource Black}, Light={StaticResource SAzul}}"
+                               StatusBarStyle="LightContent"/>
     </Page.Behaviors>
 
-    <VerticalStackLayout Padding="10"
+    <ScrollView>
+        <VerticalStackLayout Padding="10,5" 
                          Spacing="17"
-                         Margin="15">
-        <Image Source="dotnet_bot.png"
-               HeightRequest="80"/>
-        
-        <Label 
+                         Margin="17">
+            <Image Source="bakery.png"
+               HeightRequest="80"
+               Margin="5"/>
+
+            <Label 
             Text="Proyecto Pan"
             FontSize="Large"
             VerticalOptions="Center" 
             HorizontalOptions="Center" 
             FontAttributes="Bold"/>
-        <Label />
+            <Label />
 
-        <Label Text="Correo electrónico o nombre de usuario"
+            <Label Text="Correo electrónico o nombre de usuario"
                FontSize="Title"
-               HorizontalTextAlignment="Start"/>
+               HorizontalTextAlignment="Start" />
 
-        <Entry Keyboard="Email" 
+            <Entry Keyboard="Email" 
+               x:Name="Correo"
                FontSize="Medium"
                HorizontalTextAlignment="Start" 
                HorizontalOptions="Fill" />
 
-        <Label Text="Contraseña"
+            <Label Text="Contraseña"
                FontSize="Title"
                HorizontalTextAlignment="Start"/>
 
-        <Entry Keyboard="Text" 
+            <Entry Keyboard="Text" 
+               x:Name="Contra"
                FontSize="Medium"
                HorizontalTextAlignment="Start" 
                HorizontalOptions="Fill" />
 
-        <Button Text="  Iniciar sesion  "
+            <Button Text="Iniciar sesion"
+                x:Name="BtnIniciar"
+                Clicked="BtnIniciar_Clicked"
                 FontSize="Subtitle"
-                BorderWidth="3"
-                CornerRadius="17"
-                HorizontalOptions="Center"/>
+                CornerRadius="13"
+                HorizontalOptions="Center"
+                Margin="5"
+                Padding="16,0"
+                BorderWidth="1"
+                BorderColor="{AppThemeBinding Light={StaticResource Transparente}, Dark={StaticResource SBlanco}}"/>
 
-        <Button Text="  Crear cuenta  "
+            <Button Text="Crear cuenta"
+                x:Name="BtnCrear"
+                Clicked="BtnCrear_Clicked"
                 FontSize="Subtitle"
-                CornerRadius="17"
-                HorizontalOptions="Center"/>
+                CornerRadius="13"
+                HorizontalOptions="Center"
+                Margin="2"
+                Padding="16,0"
+                BorderWidth="1"
+                BorderColor="{AppThemeBinding Light={StaticResource Transparente}, Dark={StaticResource SBlanco}}"/>
 
-    </VerticalStackLayout>
+        </VerticalStackLayout>
+    </ScrollView>
 </ContentPage>

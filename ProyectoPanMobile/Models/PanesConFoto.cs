@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace ProyectoPanMobile.Models
 {
-    public static class Preferencias
+    public class PanesConFoto
     {
-        public static int Theme { get; set; }
-        
+        public Panes pan { get; set; }
+        public string imagensource { get; set; }
     }
 }
