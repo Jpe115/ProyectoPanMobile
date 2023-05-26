@@ -19,6 +19,7 @@ namespace ProyectoPanMobile.Data
             _database = new SQLiteAsyncConnection(DbPath);
             _database.CreateTableAsync<Panes>();
             _database.CreateTableAsync<Usuarios>();
+            _database.CreateTableAsync<PanesCarrito>();
         }
 
         public async Task<List<Panes>> PanesLista() {
