@@ -22,7 +22,19 @@ public partial class AppShell : Shell
         bool answer = await DisplayAlert("¿Desea cerrar sesión?", null , "Cerrar", "Mantener");
         if (answer) {
             Preferences.Set("SesionIniciada", false);
-            await Navigation.PushModalAsync(new Login1());
+            await Shell.Current.GoToAsync("Login1");
+        }
+    }
+    protected override async void OnNavigatedTo(NavigatedToEventArgs args)
+    {
+        base.OnNavigatedTo(args);
+        if (Preferences.Get("SesionIniciada",true))
+        {
+            await Shell.Current.GoToAsync($"//{nameof(AppShell)}");
+        }
+        else
+        {
+            await Shell.Current.GoToAsync($"//{nameof(AppShell)}");
         }
     }
 }

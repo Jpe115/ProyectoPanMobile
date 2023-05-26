@@ -20,37 +20,32 @@
             IconImageSource="carrito.svg" 
             Order="Primary"
             Priority="2"
-            Command="{Binding Source={x:RelativeSource AncestorType={x:Type local:InicioViewModel}}, Path=CartCommand}" CommandParameter="{Binding Path=listacompras}"/>
-        <ToolbarItem 
-            x:Name="Find"
-            Text="Buscar"
-            IconImageSource="search.png"
-            Priority="0"/>
+            Command="{Binding Source={x:RelativeSource AncestorType={x:Type local:InicioViewModel}}, Path=CartCommand}" />
+        
     </ContentPage.ToolbarItems>
-    
-    <RefreshView x:DataType="local:InicioViewModel" Command="{Binding CargarPanesCommand}">
-        <ScrollView>
-            <CollectionView ItemsSource="{Binding panesconfotoList}">
-                <CollectionView.ItemTemplate>
-                    <DataTemplate x:DataType="models:PanesConFoto">
-                        <Frame BackgroundColor="{AppThemeBinding Dark={StaticResource Gray600}, Light={StaticResource Gray100}}" BorderColor="{AppThemeBinding Light={StaticResource Transparente}}"  
+
+    <ScrollView>
+        <CollectionView ItemsSource="{Binding panesList}" x:DataType="local:InicioViewModel">
+            <CollectionView.ItemTemplate>
+                <DataTemplate x:DataType="models:Panes">
+                    <Frame BackgroundColor="{AppThemeBinding Dark={StaticResource Gray600}, Light={StaticResource Gray100}}" BorderColor="{AppThemeBinding Light={StaticResource Transparente}}"  
                                CornerRadius="21" Margin="8,3,10,0">
-                            <HorizontalStackLayout BackgroundColor="{StaticResource Transparente}" Margin="1" Spacing="15">
-                                <Image Source="{Binding imagensource}" HeightRequest="100" WidthRequest="140" MaximumHeightRequest="100" MaximumWidthRequest="100"/>
-                                <VerticalStackLayout Margin="0,15,0,0">
-                                    <Label Text="{Binding pan.NombrePan}" FontAttributes="Bold" FontSize="Medium"/>
-                                    <Label Text="{Binding pan.Precio,StringFormat='${0}'}" FontSize="Medium"/>
-                                </VerticalStackLayout>
-                            </HorizontalStackLayout>
-                            <Frame.GestureRecognizers>
-                                <TapGestureRecognizer Command="{Binding Source={x:RelativeSource AncestorType={x:Type local:InicioViewModel}}, Path=DetallesDelPanCommand}" CommandParameter="{Binding .  }"/>
-                            </Frame.GestureRecognizers>
-                        </Frame>
-                    </DataTemplate>
-                </CollectionView.ItemTemplate>
-            </CollectionView>
-        </ScrollView>
-    </RefreshView>
+                        <HorizontalStackLayout BackgroundColor="{StaticResource Transparente}" Margin="1" Spacing="15">
+                            <Image Source="{Binding Imagen}" HeightRequest="100" WidthRequest="140" MaximumHeightRequest="100" MaximumWidthRequest="100"/>
+                            <VerticalStackLayout Margin="0,15,0,0" InputTransparent="False">
+                                <Label Text="{Binding NombrePan}" FontAttributes="Bold" FontSize="Medium"/>
+                                <Label Text="{Binding Precio,StringFormat='${0}'}" FontSize="Medium"/>
+                            </VerticalStackLayout>
+                        </HorizontalStackLayout>
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding Source={x:RelativeSource AncestorType={x:Type local:InicioViewModel}}, Path=DetallesDelPanCommand}" CommandParameter="{Binding .  }"/>
+                        </Frame.GestureRecognizers>
+                    </Frame>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </ScrollView>
+    
     
     
 </ContentPage>

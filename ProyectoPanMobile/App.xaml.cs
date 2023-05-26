@@ -10,9 +10,10 @@ public partial class App : Application
 	public App()
 	{
 		InitializeComponent();
-
+		
+		
         MainPage = new AppShell();
-        Shell.Current.GoToAsync(nameof(Login1));
+        //Shell.Current.GoToAsync(nameof(Login1));
 		VersionTracking.Track();
 		if (VersionTracking.IsFirstLaunchEver)
 		{
@@ -27,5 +28,6 @@ public partial class App : Application
 			}
 		}
 	}
+	
     
 }

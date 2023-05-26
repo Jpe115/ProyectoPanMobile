@@ -24,5 +24,17 @@ namespace ProyectoPanMobile.Data
         public async Task<List<Panes>> PanesLista() {
             return await _database.Table<Panes>().ToListAsync();
         }
+
+        public async Task<List<PanesCarrito>> Carrito()
+        {
+            return await _database.Table<PanesCarrito>().ToListAsync();
+        }
+
+        public async Task AgregarAlCarrito(Panes pan, int cant)
+        {
+            PanesCarrito panz = new PanesCarrito() { PanID = pan.PanID, NombrePan = pan.NombrePan,
+            Descripcion = pan.Descripcion, Imagen = pan.Imagen, Precio = pan.Precio, Cantidad = cant};
+            await _database.InsertAsync(panz);
+        }
     }
 }

@@ -8,16 +8,16 @@
              Title="Carrito de pasteles">
 
     <ScrollView>
-        <CollectionView ItemsSource="{Binding panesconfotoList}">
+        <CollectionView ItemsSource="{Binding panesList}">
             <CollectionView.ItemTemplate>
-                <DataTemplate x:DataType="models:PanesConFoto">
+                <DataTemplate x:DataType="models:PanesCarrito">
                     <Frame BackgroundColor="{AppThemeBinding Dark={StaticResource Gray600}, Light={StaticResource Gray100}}" BorderColor="{AppThemeBinding Light={StaticResource Transparente}}"  
                                CornerRadius="21" Margin="8,3,10,0">
                         <HorizontalStackLayout BackgroundColor="{StaticResource Transparente}" Margin="1" Spacing="15">
-                            <Image Source="{Binding imagensource}" HeightRequest="100" WidthRequest="140" MaximumHeightRequest="100" MaximumWidthRequest="100"/>
+                            <Image Source="{Binding Imagen}" HeightRequest="100" WidthRequest="140" MaximumHeightRequest="100" MaximumWidthRequest="100"/>
                             <VerticalStackLayout Margin="0,15,0,0">
-                                <Label Text="{Binding pan.NombrePan}" FontAttributes="Bold" FontSize="Medium"/>
-                                <Label Text="{Binding pan.Precio,StringFormat='${0}'}" FontSize="Medium"/>
+                                <Label Text="{Binding NombrePan}" FontAttributes="Bold" FontSize="Medium"/>
+                                <Label Text="{Binding Precio,StringFormat='${0}'}" FontSize="Medium"/>
                             </VerticalStackLayout>
                         </HorizontalStackLayout>
                         <Frame.GestureRecognizers>

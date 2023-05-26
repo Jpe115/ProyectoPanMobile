@@ -14,20 +14,17 @@ using System.Collections.ObjectModel;
 
 namespace ProyectoPanMobile.ViewModels
 {
-    [QueryProperty(name: "listacompras", queryId:"listacompras")]
+    
     public partial class InicioViewModel: ObservableObject
     {
-        [ObservableProperty]
-        public List<PanesConFoto> listacompras;
-
         //[ObservableProperty]
         //public PanesConFoto pancito;
 
-        public ObservableCollection<PanesConFoto> panesconfotoList { get; set; } 
+        public ObservableCollection<Panes> panesList { get; set; } 
         
         public InicioViewModel()
         {
-            panesconfotoList = new ObservableCollection<PanesConFoto>();
+            panesList = new ObservableCollection<Panes>();
            
         }
 
@@ -39,12 +36,9 @@ namespace ProyectoPanMobile.ViewModels
         }
 
         [RelayCommand]
-        private async Task Cart(List<PanesConFoto> listacompras)
+        private async Task Cart()
         {
-            await Shell.Current.GoToAsync(nameof(Carrito),true, new Dictionary<string, object>
-            {
-                ["listacompras"] = listacompras
-            });
+            await Shell.Current.GoToAsync(nameof(Carrito), true);
         }
 
         PanRepository panRepository = new PanRepository();
@@ -54,17 +48,16 @@ namespace ProyectoPanMobile.ViewModels
         [RelayCommand]
         public async Task CargarPanes()
         {
-            panesconfotoList.Clear();
+            panesList.Clear();
             var listita = await panRepository.PanesLista();
-            for (int i=0; i<listita.Count;i++)
+            foreach(var pan in listita)
             {
-                PanesConFoto panecitos = new PanesConFoto() { pan = listita[i], imagensource = fotos[i] };
-                panesconfotoList.Add(panecitos);
+                panesList.Add(pan);
             }
         }
 
         [RelayCommand]
-        public async Task DetallesDelPan(PanesConFoto Panecito)
+        public async Task DetallesDelPan(Panes Panecito)
         {
             await Shell.Current.GoToAsync(nameof(DetallesPage),new Dictionary<string, object>
             {

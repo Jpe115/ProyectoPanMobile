@@ -41,7 +41,8 @@
     <FlyoutItem Title="Inicio" Icon="home.png">
         <ShellContent
             Title="Bienvenido"
-        ContentTemplate="{DataTemplate local:Inicio}"/>
+        ContentTemplate="{DataTemplate local:Inicio}"
+            Route="Inicio"/>
     </FlyoutItem>
 
     <FlyoutItem Title="Cuenta" Icon="user.png">

@@ -7,13 +7,14 @@ using System.Threading.Tasks;
 
 namespace ProyectoPanMobile.Models
 {
-    public class Panes
+    public class PanesCarrito
     {
-        [PrimaryKey,AutoIncrement]
+        [PrimaryKey, AutoIncrement]
         public int PanID { get; set; }
         public string NombrePan { get; set; }
         public string Descripcion { get; set; }
         public int Precio { get; set; }
         public string Imagen { get; set; }
+        public int Cantidad { get; set; }
     }
 }

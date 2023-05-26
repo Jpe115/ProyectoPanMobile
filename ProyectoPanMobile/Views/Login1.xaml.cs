@@ -13,6 +13,8 @@ public partial class Login1 : ContentPage
         
 	}
     
+    
+
     private async void BtnIniciar_Clicked(object sender, EventArgs e)
     {
         try

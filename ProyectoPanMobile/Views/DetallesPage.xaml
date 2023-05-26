@@ -8,15 +8,15 @@
              Title="Detalles">
     
     <VerticalStackLayout Margin="15,25" Spacing="7">
-        <Image Source="{Binding Panecito.imagensource}" HeightRequest="160"/>
+        <Image Source="{Binding Panecito.Imagen}" HeightRequest="160"/>
         
         <Label 
-            Text="{Binding Panecito.pan.NombrePan}" FontAttributes="Bold" FontSize="Title"
+            Text="{Binding Panecito.NombrePan}" FontAttributes="Bold" FontSize="Title"
             HorizontalOptions="Start" />
         
-        <Label Text="{Binding Panecito.pan.Precio,StringFormat='${0}'}" FontAttributes="Bold" FontSize="Medium"/>
+        <Label Text="{Binding Panecito.Precio,StringFormat='${0}'}" FontAttributes="Bold" FontSize="Medium"/>
 
-        <Label Text="{Binding Panecito.pan.Descripcion}" FontSize="Medium" HorizontalOptions="Fill"/>
+        <Label Text="{Binding Panecito.Descripcion}" FontSize="Medium" HorizontalOptions="Fill"/>
 
         <Button Text="Agregar"
                 x:Name="BtnAgregar"
