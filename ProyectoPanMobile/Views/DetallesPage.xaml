@@ -14,33 +14,20 @@
             Text="{Binding Panecito.NombrePan}" FontAttributes="Bold" FontSize="Title"
             HorizontalOptions="Start" />
         
-        <Label Text="{Binding Panecito.Descripcion}" FontSize="Subtitle" HorizontalOptions="Fill"/>
+        <Label Text="{Binding Panecito.Precio,StringFormat='${0}'}" FontAttributes="Bold" FontSize="Medium"/>
 
-        <Label Text="{Binding Panecito.Precio,StringFormat='${0}'}" FontAttributes="Bold" FontSize="Subtitle"/>
+        <Label Text="{Binding Panecito.Descripcion}" FontSize="Medium" HorizontalOptions="Fill"/>
 
-        <HorizontalStackLayout HorizontalOptions="Center" Spacing="20">
-            
-            <Button x:Name="Plus" VerticalOptions="Center" Text="-" FontSize="Medium" Padding="2"
-                    Command="{Binding MinusCommand}"/>
-
-            <Label Text="{Binding Steppervalue}" VerticalOptions="Center" FontSize="Small"/>
-
-            <Button x:Name="Minus" VerticalOptions="Center" Text="+" FontSize="Medium" Padding="2"
-                    Command="{Binding PlusCommand}"/>
-            
-            <Button Text="Agregar"
+        <Button Text="Agregar"
                 x:Name="BtnAgregar"
                 Command="{Binding MandarCommand}"
+                
                 FontSize="Subtitle"
                 CornerRadius="13"
-                HorizontalOptions="End"
+                HorizontalOptions="Center"
                 Margin="30"
                 Padding="26,0"
                 BorderWidth="1"
                 BorderColor="{AppThemeBinding Light={StaticResource Transparente}, Dark={StaticResource SBlanco}}"/>
-        </HorizontalStackLayout>
-        
-
-        
     </VerticalStackLayout>
 </ContentPage>
