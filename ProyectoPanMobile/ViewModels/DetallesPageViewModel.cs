@@ -21,12 +21,33 @@ namespace ProyectoPanMobile.ViewModels
             
         }
 
+        [ObservableProperty]
+        int steppervalue = 1;
+
         PanRepository panRepository = new PanRepository();
         [RelayCommand]
         public async Task Mandar()
         {
             await panRepository.AgregarAlCarrito(Panecito, Steppervalue);
             await Shell.Current.GoToAsync("..", true);
+        }
+
+        [RelayCommand]
+        public async Task Plus()
+        {
+            await Task.Run(() =>
+            {
+                Steppervalue += 1;
+            });
+        }
+
+        [RelayCommand]
+        public async Task Minus()
+        {
+            await Task.Run(() =>
+            {
+                Steppervalue -= 1;
+            });
         }
     }
 }
