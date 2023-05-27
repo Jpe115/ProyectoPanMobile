@@ -17,6 +17,9 @@ namespace ProyectoPanMobile.ViewModels
         [ObservableProperty]
         Panes panecito;
 
+        [ObservableProperty]
+        int steppervalue=1;
+
         public DetallesPageViewModel() {
             
         }
@@ -27,6 +30,24 @@ namespace ProyectoPanMobile.ViewModels
         {
             await panRepository.AgregarAlCarrito(Panecito, 1);
             await Shell.Current.GoToAsync("..", true);
+        }
+
+        [RelayCommand]
+        public async Task Plus()
+        {
+            await Task.Run(() =>
+            {
+                Steppervalue += 1;
+            });
+        }
+
+        [RelayCommand]
+        public async Task Minus()
+        {
+            await Task.Run(() =>
+            {
+                Steppervalue -= 1;
+            });
         }
     }
 }
