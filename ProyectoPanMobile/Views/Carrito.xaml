@@ -30,6 +30,9 @@
                                 <Label Text="{Binding Precio,StringFormat='${0}'}" FontSize="Medium"/>
                             </VerticalStackLayout>
                         </HorizontalStackLayout>
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding Source={x:RelativeSource AncestorType={x:Type local:CarritoViewModel}}, Path=DetallesDelPanCommand}" CommandParameter="{Binding .  }"/>
+                        </Frame.GestureRecognizers>
                     </Frame>
                 </DataTemplate>
             </CollectionView.ItemTemplate>

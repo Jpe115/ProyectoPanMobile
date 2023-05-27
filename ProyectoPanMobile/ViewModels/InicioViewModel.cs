@@ -71,7 +71,7 @@ namespace ProyectoPanMobile.ViewModels
         }
 
         [RelayCommand]
-        public async Task DetallesDelPan(Panes Panecito)
+        public async Task DetallesDelPan(PanesCarrito Panecito)
         {
             await Shell.Current.GoToAsync(nameof(DetallesPage),new Dictionary<string, object>
             {

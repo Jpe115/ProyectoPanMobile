@@ -1,6 +1,8 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Mvvm.Input;
 using ProyectoPanMobile.Data;
 using ProyectoPanMobile.Models;
+using ProyectoPanMobile.Views;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -41,6 +43,15 @@ namespace ProyectoPanMobile.ViewModels
             {
                 panesList.Add(panecitos);
             }
+        }
+
+        [RelayCommand]
+        public async Task DetallesDelPan(PanesCarrito Panecito)
+        {
+            await Shell.Current.GoToAsync(nameof(DetallesPage), new Dictionary<string, object>
+            {
+                ["Panecito"] = Panecito
+            });
         }
     }
 }
