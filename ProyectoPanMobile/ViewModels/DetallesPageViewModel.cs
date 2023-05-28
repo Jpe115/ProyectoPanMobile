@@ -35,19 +35,27 @@ namespace ProyectoPanMobile.ViewModels
         [RelayCommand]
         public async Task Plus()
         {
-            await Task.Run(() =>
+            if (Steppervalue < 10)
             {
-                Steppervalue += 1;
-            });
+                await Task.Run(() =>
+                {
+                    Steppervalue += 1;
+                    Panecito.Cantidad += 1;
+                });
+            }
         }
 
         [RelayCommand]
         public async Task Minus()
         {
-            await Task.Run(() =>
+            if (Steppervalue > 1)
             {
-                Steppervalue -= 1;
-            });
+                await Task.Run(() =>
+                {
+                    Steppervalue -= 1;
+                    Panecito.Cantidad -= 1;
+                });
+            }
         }
     }
 }

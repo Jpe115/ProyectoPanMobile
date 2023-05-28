@@ -7,7 +7,7 @@
              x:DataType="local:DetallesPageViewModel"
              Title="Detalles">
     
-    <VerticalStackLayout Margin="15,15" Spacing="7">
+    <VerticalStackLayout Margin="12" Spacing="7">
         <Image Source="{Binding Panecito.Imagen}" HeightRequest="160"/>
         
         <Label 
@@ -18,10 +18,10 @@
 
         <Label Text="{Binding Panecito.Descripcion}" FontSize="Medium" HorizontalOptions="Fill"/>
 
-        <HorizontalStackLayout HorizontalOptions="Center" Spacing="13">
+        <HorizontalStackLayout HorizontalOptions="Center" Spacing="12">
             <Button Text="-" FontSize="Medium" Padding="0" Command="{Binding MinusCommand}" VerticalOptions="Center"/>
             
-            <Label Text="{Binding Panecito.Cantidad, Mode=TwoWay}" VerticalOptions="Center" FontSize="Medium"/>
+            <Label Text="{Binding Steppervalue}" VerticalOptions="Center" FontSize="Medium"/>
 
             <Button Text="+" FontSize="Medium" Padding="0" Command="{Binding PlusCommand}" VerticalOptions="Center"/>
 
@@ -31,7 +31,7 @@
                 
                 FontSize="Subtitle"
                 CornerRadius="13"
-                HorizontalOptions="Center"
+                HorizontalOptions="End"
                 Margin="30"
                 Padding="26,0"
                 BorderWidth="1"
