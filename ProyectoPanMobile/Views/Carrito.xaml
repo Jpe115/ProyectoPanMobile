@@ -22,25 +22,26 @@
                 <DataTemplate x:DataType="models:PanesCarrito">
                     <Frame BackgroundColor="{AppThemeBinding Dark={StaticResource Gray600}, Light={StaticResource Gray100}}" BorderColor="{AppThemeBinding Light={StaticResource Transparente}}"  
                                CornerRadius="21" Margin="8,3,8,0">
-                        <Grid ColumnDefinitions="170,*,*,*" RowDefinitions="60,30,30">
+                        <Grid ColumnDefinitions="170,*,*,*" RowDefinitions="45,30,30">
 
                             <Image Grid.Column="0" Grid.RowSpan="3" Source="{Binding Imagen}" HeightRequest="90" WidthRequest="150" 
                                    MaximumHeightRequest="90" MaximumWidthRequest="150"/>
+
+                            <Label Grid.ColumnSpan="4" Grid.Row="0" Margin="170,0,0,0" HorizontalTextAlignment="Start"  Text="{Binding NombrePan}" VerticalTextAlignment="End" FontAttributes="Bold" FontSize="Body"/>
                             
-                            <Label Grid.ColumnSpan="4" HorizontalTextAlignment="Center" Grid.Row="0" Text="{Binding NombrePan}" VerticalTextAlignment="End" FontAttributes="Bold" FontSize="Medium"/>
-                            
-                            <Label Grid.Column="1" Grid.Row="1" Text="{Binding Precio,StringFormat='${0}'}" FontSize="Medium"/>
+                            <Label Grid.Column="1" Grid.Row="1" Text="{Binding Precio,StringFormat='${0}'}" FontSize="Body"/>
 
-                            <Button x:DataType="local:CarritoViewModel" Grid.Column="1" Grid.Row="2" Text="-" FontSize="Medium" Padding="0" Command="{Binding MenosCommand}" VerticalOptions="Center"/>
+                            <Button x:DataType="local:CarritoViewModel" Grid.Column="1" Grid.Row="2" Text="-" FontSize="Medium" Padding="0" Command="{Binding MenosCommand}" VerticalOptions="Center" 
+                                    CornerRadius="10" BorderWidth="1" Margin="3,0,0,0"
+                                    BorderColor="{AppThemeBinding Light={StaticResource Transparente}, Dark={StaticResource SBlanco}}"/>
 
-                            <Label Grid.Column="2" Grid.Row="2" Text="{Binding Cantidad}" HorizontalTextAlignment="Center" VerticalOptions="Center" FontSize="Medium"/>
+                            <Label Grid.Column="2" Grid.Row="2" Text="{Binding Cantidad}" HorizontalTextAlignment="Center" VerticalOptions="Center" FontSize="Subtitle"/>
 
-                            <Button x:DataType="local:CarritoViewModel" Grid.Column="3" Grid.Row="2" Text="+" FontSize="Medium" Padding="0" Command="{Binding PlusCommand}" VerticalOptions="Center"/>
+                            <Button x:DataType="local:CarritoViewModel" Grid.Column="3" Grid.Row="2" Text="+" FontSize="Medium" Padding="0" Command="{Binding PlusCommand}" VerticalOptions="Center"
+                                    CornerRadius="10" BorderWidth="1" Margin="0,0,3,0"
+                                    BorderColor="{AppThemeBinding Light={StaticResource Transparente}, Dark={StaticResource SBlanco}}"/>
                         </Grid>
 
-                        <Frame.GestureRecognizers>
-                            <TapGestureRecognizer Command="{Binding Source={x:RelativeSource AncestorType={x:Type local:CarritoViewModel}}, Path=DetallesDelPanCommand}" CommandParameter="{Binding .  }"/>
-                        </Frame.GestureRecognizers>
                     </Frame>
                 </DataTemplate>
             </CollectionView.ItemTemplate>

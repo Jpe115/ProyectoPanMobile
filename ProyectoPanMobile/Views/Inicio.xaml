@@ -44,9 +44,9 @@
                                    MaximumHeightRequest="110" MaximumWidthRequest="150"/>
                                     
                             <Label Grid.Column="1" Grid.Row="0" Text="{Binding NombrePan}" FontAttributes="Bold" 
-                                   FontSize="Medium" MaxLines="2" VerticalTextAlignment="End"/>
+                                   FontSize="Body" MaxLines="2" VerticalTextAlignment="End"/>
                             <Label Grid.Column="1" Grid.Row="1" Text="{Binding Precio,StringFormat='${0}'}" 
-                                   FontSize="Medium"/>
+                                   FontSize="Body"/>
 
                         </Grid>
                         

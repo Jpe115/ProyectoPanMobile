@@ -34,7 +34,27 @@ namespace ProyectoPanMobile.Data
         public async Task AgregarAlCarrito(PanesCarrito pan, int cant)
         {
             pan.Cantidad = cant;
-            await _database.InsertAsync(pan);
+            var lista = await Carrito();
+            if (lista.Count == 0)
+            {
+                await _database.InsertAsync(pan);
+            }
+            else
+            {
+                foreach (var pana in lista)
+                {
+                    if (pan.NombrePan == pana.NombrePan)
+                    {
+                        pana.Cantidad = cant;
+                        await _database.DeleteAsync(pana);
+                        await _database.InsertAsync(pan);
+                    }
+                    else
+                    {
+                        await _database.InsertAsync(pan);
+                    }
+                }
+            }
         }
         public async Task ReiniciarCarrito()
         {

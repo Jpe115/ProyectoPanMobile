@@ -62,9 +62,10 @@ namespace ProyectoPanMobile.ViewModels
         {
             if (Steppervalue < 10)
             {
-                await Task.Run(() =>
+                await Task.Run(async () =>
                 {
                     Steppervalue += 1;
+                    await CargarCarrito();
                 });
             }
         }
@@ -74,9 +75,10 @@ namespace ProyectoPanMobile.ViewModels
         {
             if (Steppervalue > 1)
             {
-                await Task.Run(() =>
+                await Task.Run(async () =>
                 {
                     Steppervalue -= 1;
+                    await CargarCarrito();
                 });
             }
         }
