@@ -24,9 +24,10 @@ public partial class Carrito : ContentPage
     }
     protected override async void OnAppearing()
     {
-        base.OnAppearing();
         await vm.CargarCarrito(fotos);
+        base.OnAppearing();
     }
+
     string[] fotos = { "pastel3leches.jpg", "pastelfrutosrojos.png", "pasteldechocolate.png",
         "pastelvainillanuez.png", "paydequeso.jpg", "paydemanzana.jpg", "paydefresa.jpg", "paydeoreo.jpg"};
 }

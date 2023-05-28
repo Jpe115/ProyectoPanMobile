@@ -5,6 +5,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:local="clr-namespace:ProyectoPanMobile.Views"
     Shell.FlyoutBehavior="Flyout" 
+    Shell.FlyoutWidth="340"
     xmlns:m="clr-namespace:CommunityToolkit.Maui;assembly=CommunityToolkit.Maui"  >
 
     <Shell.FlyoutHeader>
