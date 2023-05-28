@@ -36,16 +36,16 @@
                                 <ColumnDefinition Width="*"/>
                             </Grid.ColumnDefinitions>
                             <Grid.RowDefinitions>
-                                <RowDefinition Height="90"/>
-                                <RowDefinition Height="20"/>
+                                <RowDefinition Height="50"/>
+                                <RowDefinition Height="50"/>
                             </Grid.RowDefinitions>
                            
-                            <Image Grid.Column="0" Grid.Row="0" Source="{Binding Imagen}" HeightRequest="90" WidthRequest="140" 
-                                   MaximumHeightRequest="90" MaximumWidthRequest="100"/>
+                            <Image Grid.RowSpan="2" Grid.Row="0" Source="{Binding Imagen}" HeightRequest="110" WidthRequest="140" 
+                                   MaximumHeightRequest="110" MaximumWidthRequest="150"/>
                                     
                             <Label Grid.Column="1" Grid.Row="0" Text="{Binding NombrePan}" FontAttributes="Bold" 
-                                   FontSize="Medium" MaxLines="2"/>
-                            <Label Grid.Column="1" Grid.Row="0" Text="{Binding Precio,StringFormat='${0}'}" 
+                                   FontSize="Medium" MaxLines="2" VerticalTextAlignment="End"/>
+                            <Label Grid.Column="1" Grid.Row="1" Text="{Binding Precio,StringFormat='${0}'}" 
                                    FontSize="Medium"/>
 
                         </Grid>
