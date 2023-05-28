@@ -41,21 +41,24 @@ namespace ProyectoPanMobile.Data
             }
             else
             {
+                bool panEncontrado = false;
                 foreach (var pana in lista)
                 {
                     if (pan.NombrePan == pana.NombrePan)
                     {
                         pana.Cantidad = cant;
-                        await _database.DeleteAsync(pana);
-                        await _database.InsertAsync(pan);
+                        await _database.UpdateAsync(pana);
+                        panEncontrado = true;
+                        break;
                     }
-                    else
-                    {
-                        await _database.InsertAsync(pan);
-                    }
+                }
+                if (!panEncontrado)
+                {
+                    await _database.InsertAsync(pan);
                 }
             }
         }
+
         public async Task ReiniciarCarrito()
         {
             await _database.DeleteAllAsync<PanesCarrito>();

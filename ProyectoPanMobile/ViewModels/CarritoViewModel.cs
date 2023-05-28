@@ -38,6 +38,18 @@ namespace ProyectoPanMobile.ViewModels
             }
             await panRepository.ImgsACarrito(fotos);
         }
+        public async Task CargarCarrito(PanesCarrito pan)
+        {
+            await panRepository.AgregarAlCarrito(pan, pan.Cantidad);
+            var listita = await panRepository.Carrito();
+            panesList.Clear();
+            foreach (var panecitos in listita)
+            {
+                panesList.Add(panecitos);
+            }
+        }
+
+        
         public async Task CargarCarrito()
         {
             panesList.Clear();
@@ -58,27 +70,27 @@ namespace ProyectoPanMobile.ViewModels
         }
 
         [RelayCommand]
-        public async Task Plus()
+        public async Task Plus(PanesCarrito pan)
         {
-            if (Steppervalue < 10)
+            if (pan.Cantidad < 10)
             {
                 await Task.Run(async () =>
                 {
-                    Steppervalue += 1;
-                    await CargarCarrito();
+                    pan.Cantidad += 1;
+                    await CargarCarrito(pan);
                 });
             }
         }
 
         [RelayCommand]
-        public async Task Menos()
+        public async Task Menos(PanesCarrito pan)
         {
-            if (Steppervalue > 1)
+            if (pan.Cantidad > 1)
             {
                 await Task.Run(async () =>
                 {
-                    Steppervalue -= 1;
-                    await CargarCarrito();
+                    pan.Cantidad -= 1;
+                    await CargarCarrito(pan);
                 });
             }
         }
