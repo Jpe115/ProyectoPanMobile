@@ -28,7 +28,6 @@
             <Button Text="Agregar"
                 x:Name="BtnAgregar"
                 Command="{Binding MandarCommand}"
-                
                 FontSize="Subtitle"
                 CornerRadius="13"
                 HorizontalOptions="End"

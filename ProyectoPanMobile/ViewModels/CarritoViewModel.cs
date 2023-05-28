@@ -16,6 +16,9 @@ namespace ProyectoPanMobile.ViewModels
     {
         public ObservableCollection<PanesCarrito> panesList { get; set; }
 
+        [ObservableProperty]
+        int steppervalue = 1;
+
         public CarritoViewModel()
         {
             panesList = new ObservableCollection<PanesCarrito>();
@@ -52,6 +55,30 @@ namespace ProyectoPanMobile.ViewModels
             {
                 ["Panecito"] = Panecito
             });
+        }
+
+        [RelayCommand]
+        public async Task Plus()
+        {
+            if (Steppervalue < 10)
+            {
+                await Task.Run(() =>
+                {
+                    Steppervalue += 1;
+                });
+            }
+        }
+
+        [RelayCommand]
+        public async Task Menos()
+        {
+            if (Steppervalue > 1)
+            {
+                await Task.Run(() =>
+                {
+                    Steppervalue -= 1;
+                });
+            }
         }
     }
 }

@@ -28,7 +28,7 @@
             <CollectionView.ItemTemplate>
                 <DataTemplate x:DataType="models:Panes">
                     <Frame BackgroundColor="{AppThemeBinding Dark={StaticResource Gray600}, Light={StaticResource Gray100}}" BorderColor="{AppThemeBinding Light={StaticResource Transparente}}"  
-                               CornerRadius="21" Margin="8,3,10,0">
+                               CornerRadius="21" Margin="8,3,8,0">
 
                         <Grid>
                             <Grid.ColumnDefinitions >
