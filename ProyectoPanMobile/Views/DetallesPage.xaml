@@ -21,7 +21,7 @@
         <HorizontalStackLayout HorizontalOptions="Center" Spacing="13">
             <Button Text="-" FontSize="Medium" Padding="0" Command="{Binding MinusCommand}" VerticalOptions="Center"/>
             
-            <Label Text="{Binding Steppervalue, Mode=TwoWay}" VerticalOptions="Center" FontSize="Medium"/>
+            <Label Text="{Binding Panecito.Cantidad, Mode=TwoWay}" VerticalOptions="Center" FontSize="Medium"/>
 
             <Button Text="+" FontSize="Medium" Padding="0" Command="{Binding PlusCommand}" VerticalOptions="Center"/>
 
