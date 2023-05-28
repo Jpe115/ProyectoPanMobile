@@ -7,7 +7,7 @@
              x:DataType="local:DetallesPageViewModel"
              Title="Detalles">
     
-    <VerticalStackLayout Margin="15,25" Spacing="7">
+    <VerticalStackLayout Margin="15,15" Spacing="7">
         <Image Source="{Binding Panecito.Imagen}" HeightRequest="160"/>
         
         <Label 
