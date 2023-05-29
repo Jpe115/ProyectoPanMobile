@@ -24,7 +24,7 @@ public partial class Carrito : ContentPage
     }
     protected override async void OnAppearing()
     {
-        await vm.CargarCarrito(fotos);
+        await vm.CargarCarrito();
         base.OnAppearing();
     }
 

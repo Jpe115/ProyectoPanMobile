@@ -28,7 +28,7 @@ namespace ProyectoPanMobile.ViewModels
         "pastelvainillanuez.png", "paydequeso.jpg", "paydemanzana.jpg", "paydefresa.jpg", "paydeoreo.jpg"};
 
         PanRepository panRepository = new PanRepository();
-        public async Task CargarCarrito(string[] fotos)
+        /*public async Task CargarCarrito(string[] fotos)
         {
             panesList.Clear();
             var listita = await panRepository.Carrito();
@@ -37,7 +37,8 @@ namespace ProyectoPanMobile.ViewModels
                 panesList.Add(panecitos);
             }
             await panRepository.ImgsACarrito(fotos);
-        }
+        }*/
+
         public async Task CargarCarrito(PanesCarrito pan)
         {
             await panRepository.AgregarAlCarrito(pan, pan.Cantidad);
