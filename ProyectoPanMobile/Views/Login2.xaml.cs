@@ -1,3 +1,6 @@
+using CommunityToolkit.Maui.Alerts;
+using CommunityToolkit.Maui.Core;
+
 namespace ProyectoPanMobile.Views;
 
 public partial class Login2 : ContentPage
@@ -28,7 +31,7 @@ public partial class Login2 : ContentPage
             }else
 			{
                 await SecureStorage.SetAsync("isAuth", "true");
-                await DisplayAlert("Bien :D", "Cuenta creada exitosamente", "Ok");
+                await Toast.Make("Cuenta creada exitosamente", ToastDuration.Short).Show();
                 await Shell.Current.GoToAsync("//Inicio");
             }
 		}catch (Exception ex)

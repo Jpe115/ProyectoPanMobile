@@ -1,4 +1,6 @@
-﻿using Android.Net.Wifi.Aware;
+﻿//using Android.Net.Wifi.Aware;
+using CommunityToolkit.Maui.Alerts;
+using CommunityToolkit.Maui.Core;
 using ProyectoPanMobile.Models;
 using ProyectoPanMobile.Views;
 
@@ -23,6 +25,7 @@ public partial class AppShell : Shell
         bool answer = await DisplayAlert("¿Desea cerrar sesión?", null , "Cerrar", "Mantener");
         if (answer) {
             SecureStorage.RemoveAll();
+            await Toast.Make("Sesión cerrada", ToastDuration.Short).Show();
             await Shell.Current.GoToAsync("Login1");
         }
     }    

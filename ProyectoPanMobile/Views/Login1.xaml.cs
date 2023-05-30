@@ -1,3 +1,4 @@
+using CommunityToolkit.Maui.Alerts;
 using CommunityToolkit.Maui.Core;
 using CommunityToolkit.Maui.Core.Platform;
 using Microsoft.Maui.Controls.Xaml;
@@ -32,6 +33,7 @@ public partial class Login1 : ContentPage
             else
             {
                 await SecureStorage.SetAsync("isAuth", "true");
+                await Toast.Make("Sesión iniciada", ToastDuration.Short).Show();
                 await Shell.Current.GoToAsync("//Inicio");
             }
         }
