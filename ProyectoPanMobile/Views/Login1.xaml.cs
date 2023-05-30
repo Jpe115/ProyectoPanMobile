@@ -31,7 +31,7 @@ public partial class Login1 : ContentPage
             }
             else
             {
-                Preferences.Set("SesionIniciada", true);
+                await SecureStorage.SetAsync("isAuth", "true");
                 await Shell.Current.GoToAsync("//Inicio");
             }
         }

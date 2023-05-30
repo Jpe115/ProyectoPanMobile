@@ -23,9 +23,10 @@ public partial class Inicio : ContentPage
 
     protected async override void OnAppearing()
     {
-        if (Preferences.Get("SesionIniciada", true))
+        var isAuth = await auth();
+        if (isAuth == "true")
         {
-            //await Shell.Current.GoToAsync($"//{nameof(AppShell)}");
+            //await Shell.Current.GoToAsync("//Inicio");
         }
         else
         {
@@ -33,6 +34,11 @@ public partial class Inicio : ContentPage
         }
         await viewModel.CargarPanes();
         base.OnAppearing();
+    }
+    public async Task<string> auth()
+    {
+        var isAuth = await SecureStorage.GetAsync("isAuth");
+        return isAuth;
     }
 
 }
