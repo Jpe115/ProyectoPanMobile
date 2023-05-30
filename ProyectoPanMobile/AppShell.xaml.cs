@@ -14,6 +14,7 @@ public partial class AppShell : Shell
         Routing.RegisterRoute(nameof(Cuenta), typeof(Cuenta));
         Routing.RegisterRoute(nameof(Carrito), typeof(Carrito));
         Routing.RegisterRoute(nameof(DetallesPage), typeof(DetallesPage));
+        Routing.RegisterRoute(nameof(AppShell), typeof(AppShell));
     }
 
     private async void CerrarSesion_Clicked(object sender, EventArgs e)
@@ -27,13 +28,13 @@ public partial class AppShell : Shell
     protected override async void OnNavigatedTo(NavigatedToEventArgs args)
     {
         base.OnNavigatedTo(args);
-        if (Preferences.Get("SesionIniciada",true))
+        if (Preferences.Get("SesionIniciada", true))
         {
-            await Shell.Current.GoToAsync($"//{nameof(AppShell)}");
+            await Shell.Current.GoToAsync("//Inicio");
         }
         else
         {
-            await Shell.Current.GoToAsync($"//{nameof(AppShell)}");
+            await Shell.Current.GoToAsync("//Login1");
         }
     }
 }

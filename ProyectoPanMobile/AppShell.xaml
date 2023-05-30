@@ -53,13 +53,13 @@
         Route="Cuenta"/>
     </FlyoutItem>
 
-    <ShellContent ContentTemplate="{DataTemplate local:Inicio}" Route="Inicio"/>
+    <ShellContent ContentTemplate="{DataTemplate local:Inicio}" />
 
     <ShellContent ContentTemplate="{DataTemplate local:Cuenta}" Route="Cuenta"/>
 
     <ShellContent ContentTemplate="{DataTemplate local:Carrito}" Route="Carrito"/>
 
-    <ShellContent ContentTemplate="{DataTemplate local:Login1}" Route="Login1"/>
+    <ShellContent ContentTemplate="{DataTemplate local:Login1}" Route="Login1" FlyoutItemIsVisible="False"/>
 
     <ShellContent ContentTemplate="{DataTemplate local:Login2}" Route="Login2"/>
 

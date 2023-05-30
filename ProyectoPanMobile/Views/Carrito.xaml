@@ -28,7 +28,7 @@
                                    MaximumHeightRequest="90" MaximumWidthRequest="150"/>
 
                             <Label Grid.ColumnSpan="4" Grid.Row="0" Margin="170,0,0,0" HorizontalTextAlignment="Start"  Text="{Binding NombrePan}" VerticalTextAlignment="End" FontAttributes="Bold" FontSize="Body"/>
-                            
+
                             <Label Grid.Column="1" Grid.Row="1" Text="{Binding Precio,StringFormat='${0}'}" FontSize="Body"/>
 
                             <Button x:DataType="local:CarritoViewModel" Grid.Column="1" Grid.Row="2" Text="-" FontSize="Medium" Padding="0" VerticalOptions="Center" 
@@ -43,7 +43,6 @@
                                     BorderColor="{AppThemeBinding Light={StaticResource Transparente}, Dark={StaticResource SBlanco}}" 
                                     Command="{Binding Source={x:RelativeSource AncestorType={x:Type local:CarritoViewModel}}, Path=PlusCommand}" CommandParameter="{Binding .  }"/>
                         </Grid>
-
                     </Frame>
                 </DataTemplate>
             </CollectionView.ItemTemplate>

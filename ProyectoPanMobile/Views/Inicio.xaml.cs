@@ -23,8 +23,16 @@ public partial class Inicio : ContentPage
 
     protected async override void OnAppearing()
     {
-        base.OnAppearing();
+        if (Preferences.Get("SesionIniciada", true))
+        {
+            //await Shell.Current.GoToAsync($"//{nameof(AppShell)}");
+        }
+        else
+        {
+            await Shell.Current.GoToAsync("//Login1");
+        }
         await viewModel.CargarPanes();
+        base.OnAppearing();
     }
 
 }
