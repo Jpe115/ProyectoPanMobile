@@ -5,6 +5,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:local="clr-namespace:ProyectoPanMobile.Views"
     Shell.FlyoutBehavior="Flyout" 
+    Shell.FlyoutWidth="340"
     xmlns:m="clr-namespace:CommunityToolkit.Maui;assembly=CommunityToolkit.Maui"  >
 
     <Shell.FlyoutHeader>
@@ -51,5 +52,17 @@
         ContentTemplate="{DataTemplate local:Cuenta}"
         Route="Cuenta"/>
     </FlyoutItem>
+
+    <ShellContent ContentTemplate="{DataTemplate local:Inicio}" />
+
+    <ShellContent ContentTemplate="{DataTemplate local:Cuenta}" Route="Cuenta"/>
+
+    <ShellContent ContentTemplate="{DataTemplate local:Carrito}" Route="Carrito"/>
+
+    <ShellContent ContentTemplate="{DataTemplate local:Login1}" Route="Login1" FlyoutItemIsVisible="False"/>
+
+    <ShellContent ContentTemplate="{DataTemplate local:Login2}" Route="Login2"/>
+
+    <ShellContent ContentTemplate="{DataTemplate local:DetallesPage}" Route="DetallesPage"/>
 
 </Shell>

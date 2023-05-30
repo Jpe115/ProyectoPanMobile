@@ -27,9 +27,9 @@ public partial class Login2 : ContentPage
                 await DisplayAlert("Error O.o", "Contraseñas no coinciden. Intente nuevamente", "Ok");
             }else
 			{
-                Preferences.Set("SesionIniciada", true);
-				await DisplayAlert("Bien :D", "Cuenta creada exitosamente", "Ok");
-                await Shell.Current.GoToAsync(nameof(Inicio));
+                await SecureStorage.SetAsync("isAuth", "true");
+                await DisplayAlert("Bien :D", "Cuenta creada exitosamente", "Ok");
+                await Shell.Current.GoToAsync("//Inicio");
             }
 		}catch (Exception ex)
 		{

@@ -23,8 +23,22 @@ public partial class Inicio : ContentPage
 
     protected async override void OnAppearing()
     {
-        base.OnAppearing();
+        var isAuth = await auth();
+        if (isAuth == "true")
+        {
+            //await Shell.Current.GoToAsync("//Inicio");
+        }
+        else
+        {
+            await Shell.Current.GoToAsync("//Login1");
+        }
         await viewModel.CargarPanes();
+        base.OnAppearing();
+    }
+    public async Task<string> auth()
+    {
+        var isAuth = await SecureStorage.GetAsync("isAuth");
+        return isAuth;
     }
 
 }

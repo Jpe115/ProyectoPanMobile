@@ -1,4 +1,5 @@
-﻿using ProyectoPanMobile.Models;
+﻿using Android.Net.Wifi.Aware;
+using ProyectoPanMobile.Models;
 using ProyectoPanMobile.Views;
 
 namespace ProyectoPanMobile;
@@ -13,28 +14,16 @@ public partial class AppShell : Shell
         Routing.RegisterRoute(nameof(Inicio), typeof(Inicio));
         Routing.RegisterRoute(nameof(Cuenta), typeof(Cuenta));
         Routing.RegisterRoute(nameof(Carrito), typeof(Carrito));
-        Routing.RegisterRoute(nameof(AppShell), typeof(AppShell));
         Routing.RegisterRoute(nameof(DetallesPage), typeof(DetallesPage));
+        Routing.RegisterRoute(nameof(AppShell), typeof(AppShell));
     }
 
     private async void CerrarSesion_Clicked(object sender, EventArgs e)
     {
         bool answer = await DisplayAlert("¿Desea cerrar sesión?", null , "Cerrar", "Mantener");
         if (answer) {
-            Preferences.Set("SesionIniciada", false);
+            SecureStorage.RemoveAll();
             await Shell.Current.GoToAsync("Login1");
         }
-    }
-    protected override async void OnNavigatedTo(NavigatedToEventArgs args)
-    {
-        base.OnNavigatedTo(args);
-        if (Preferences.Get("SesionIniciada",true))
-        {
-            await Shell.Current.GoToAsync($"//{nameof(AppShell)}");
-        }
-        else
-        {
-            await Shell.Current.GoToAsync($"//{nameof(AppShell)}");
-        }
-    }
+    }    
 }

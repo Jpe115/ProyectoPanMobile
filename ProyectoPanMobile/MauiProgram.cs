@@ -3,6 +3,7 @@ using Microsoft.Extensions.Logging;
 using ProyectoPanMobile.Data;
 using ProyectoPanMobile.ViewModels;
 using ProyectoPanMobile.Views;
+using SkiaSharp.Views.Maui.Controls.Hosting;
 
 namespace ProyectoPanMobile;
 
@@ -13,6 +14,7 @@ public static class MauiProgram
 		var builder = MauiApp.CreateBuilder();
 		builder
 			.UseMauiApp<App>()
+			.UseSkiaSharp()
             .UseMauiCommunityToolkit()
             .ConfigureFonts(fonts =>
 			{

@@ -15,18 +15,47 @@ namespace ProyectoPanMobile.ViewModels
     public partial class DetallesPageViewModel: ObservableObject
     {
         [ObservableProperty]
-        Panes panecito;
+        PanesCarrito panecito;
 
         public DetallesPageViewModel() {
             
         }
 
+        [ObservableProperty]
+        int steppervalue = 1;
+
         PanRepository panRepository = new PanRepository();
         [RelayCommand]
         public async Task Mandar()
         {
-            await panRepository.AgregarAlCarrito(Panecito, 1);
+            await panRepository.AgregarAlCarrito(Panecito, Steppervalue);
             await Shell.Current.GoToAsync("..", true);
+        }
+
+        [RelayCommand]
+        public async Task Plus()
+        {
+            if (Steppervalue < 10)
+            {
+                await Task.Run(() =>
+                {
+                    Steppervalue += 1;
+                    Panecito.Cantidad += 1;
+                });
+            }
+        }
+
+        [RelayCommand]
+        public async Task Minus()
+        {
+            if (Steppervalue > 1)
+            {
+                await Task.Run(() =>
+                {
+                    Steppervalue -= 1;
+                    Panecito.Cantidad -= 1;
+                });
+            }
         }
     }
 }
