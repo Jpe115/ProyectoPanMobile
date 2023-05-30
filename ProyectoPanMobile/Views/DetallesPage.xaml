@@ -6,38 +6,44 @@
              xmlns:models="clr-namespace:ProyectoPanMobile.Models"
              x:DataType="local:DetallesPageViewModel"
              Title="Detalles">
-    
-    <VerticalStackLayout Margin="12" Spacing="7">
-        <Image Source="{Binding Panecito.Imagen}" HeightRequest="160"/>
-        
-        <Label 
+
+    <Grid ColumnDefinitions="34,*,200" RowDefinitions="190,*,90">
+
+        <Image Source="{Binding Panecito.Imagen}" Grid.ColumnSpan="3" Grid.Row="0" HeightRequest="160"/>
+
+        <VerticalStackLayout Grid.ColumnSpan="3" Grid.Row="1" Margin="12,0" Spacing="7">
+            
+            <Label 
             Text="{Binding Panecito.NombrePan}" FontAttributes="Bold" FontSize="Title"
             HorizontalOptions="Start" />
-        
-        <Label Text="{Binding Panecito.Precio,StringFormat='${0}'}" FontAttributes="Bold" FontSize="Medium"/>
 
-        <Label Text="{Binding Panecito.Descripcion}" FontSize="Medium" HorizontalOptions="Fill"/>
+            <Label Text="{Binding Panecito.Precio,StringFormat='${0}'}" FontAttributes="Bold" FontSize="Medium"/>
 
-        <HorizontalStackLayout HorizontalOptions="Center" Spacing="12">
-            <Button Text="-" FontSize="Medium" Padding="0" Command="{Binding MinusCommand}" VerticalOptions="Center" CornerRadius="13" BorderWidth="1"
+            <Label Text="{Binding Panecito.Descripcion}" FontSize="Medium" HorizontalOptions="Fill"/>
+        </VerticalStackLayout>
+
+        <HorizontalStackLayout Grid.Column="1" Grid.Row="2" Spacing="15" >
+                <Button Text="-" FontSize="Medium" VerticalOptions="Center" Padding="0"  Command="{Binding MinusCommand}"  CornerRadius="13" BorderWidth="1"
                 BorderColor="{AppThemeBinding Light={StaticResource Transparente}, Dark={StaticResource SBlanco}}"/>
-            
-            <Label Text="{Binding Steppervalue}" VerticalOptions="Center" FontSize="Medium"/>
 
-            <Button Text="+" FontSize="Medium" Padding="0" Command="{Binding PlusCommand}" VerticalOptions="Center"
+                <Label Text="{Binding Steppervalue}" VerticalOptions="Center" FontSize="Medium"/>
+
+                <Button Text="+" FontSize="Medium" Padding="0" Command="{Binding PlusCommand}" VerticalOptions="Center"
                     CornerRadius="13" BorderWidth="1"
                 BorderColor="{AppThemeBinding Light={StaticResource Transparente}, Dark={StaticResource SBlanco}}"/>
-
-            <Button Text="Agregar"
+   
+        </HorizontalStackLayout>
+        <Button Text="Agregar"
+                Grid.Row="2"
+                Grid.Column="3"
                 x:Name="BtnAgregar"
                 Command="{Binding MandarCommand}"
                 FontSize="Subtitle"
                 CornerRadius="13"
                 HorizontalOptions="End"
-                Margin="30"
-                Padding="26,0"
+                Margin="34,20"
+                Padding="32,0"
                 BorderWidth="1"
                 BorderColor="{AppThemeBinding Light={StaticResource Transparente}, Dark={StaticResource SBlanco}}"/>
-        </HorizontalStackLayout>
-    </VerticalStackLayout>
+    </Grid>
 </ContentPage>

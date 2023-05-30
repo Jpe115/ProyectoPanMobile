@@ -32,7 +32,7 @@ public partial class Login1 : ContentPage
             else
             {
                 Preferences.Set("SesionIniciada", true);
-                await Shell.Current.GoToAsync(nameof(AppShell));
+                await Shell.Current.GoToAsync("/AppShell");
             }
         }
         catch (Exception ex)
