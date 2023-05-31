@@ -129,15 +129,15 @@ namespace ProyectoPanMobile.Data
             return listaUsuarios;
         }
 
-        public async Task<int> ExisteUsuario(string cuenta, string contra)
+        public async Task<bool> ExisteUsuario(string cuenta, string contra)
         {
             var listaUsuarios = await ListarUsuarios();
-            int existeUsuario = 0;
+            bool existeUsuario = false;
             foreach(Usuarios usuario in listaUsuarios)
             {
                 if(usuario.NombreUsuario == cuenta && usuario.Contraseña == contra)
                 {
-                    existeUsuario = usuario.UsuarioID;
+                    existeUsuario = true;
                     break;
                 }
             }

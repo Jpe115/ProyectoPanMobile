@@ -15,14 +15,14 @@ public partial class Login2 : ContentPage
     {
 		try
 		{
-			string email = Correo.Text;
+			string usuario = Correo.Text;
 			string password = Contra.Text;
 			string confpassword = Confirmar.Text;
 
             PanRepository panRepository = new PanRepository();
-            bool repetido = await panRepository.isUsuarioRepetido(email);
+            bool repetido = await panRepository.isUsuarioRepetido(usuario);
 
-            if (email == null || password == null || confpassword == null)
+            if (usuario == null || password == null || confpassword == null)
 			{
                 await DisplayAlert("Error O.o", "Alguno de los campos está vacío", "Ok");
             }
@@ -41,8 +41,8 @@ public partial class Login2 : ContentPage
             else
 			{
                 await SecureStorage.SetAsync("isAuth", "true");
-                await SecureStorage.SetAsync("cuenta",email);
-                await panRepository.RegistrarUsuario(email, password);
+                await SecureStorage.SetAsync("cuenta",usuario);
+                await panRepository.RegistrarUsuario(usuario, password);
                 await Toast.Make("Cuenta creada exitosamente", ToastDuration.Short).Show();
                 await Shell.Current.GoToAsync("//Inicio");
             }
