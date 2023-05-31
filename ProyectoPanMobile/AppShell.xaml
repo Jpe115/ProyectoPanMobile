@@ -9,26 +9,24 @@
     xmlns:m="clr-namespace:CommunityToolkit.Maui;assembly=CommunityToolkit.Maui"  >
 
     <Shell.FlyoutHeader>
-        <VerticalStackLayout Padding="13" Spacing="8" 
-                            BackgroundColor="{AppThemeBinding Light={StaticResource SBlanco}, Dark={StaticResource SGris}}">
-            <HorizontalStackLayout>
-                <Image Source="bakery.png"
-                       HeightRequest="51"
-                       HorizontalOptions="Start"/>
-                <ImageButton Source="logout.png"
-                             x:Name="CerrarSesion"
-                             HeightRequest="30"
-                             HorizontalOptions="End"
-                             Clicked="CerrarSesion_Clicked"/>
-            </HorizontalStackLayout>
-            
-            <Label Text="Usuario Ejemplo"
-                   FontSize="Small"
+        <Grid BackgroundColor="{AppThemeBinding Dark={StaticResource Gray950},Light={StaticResource SBlanco}}" 
+              ColumnDefinitions="*,60" RowDefinitions="75,25,30">
+            <Image Grid.Column="0" Grid.Row="0" Source="bakery.png"
+                   HeightRequest="50"
+                   Margin="13"
+                   HorizontalOptions="Start"/>
+            <ImageButton Grid.Column="1" Grid.Row="0" Source="logout.png"
+                         x:Name="CerrarSesion"
+                         HeightRequest="30"
+                         Clicked="CerrarSesion_Clicked"/>
+            <Label Grid.Column="0" Grid.Row="1" Text="Usuario Ejemplo"
+                   FontSize="Small" Margin="7,0"
                    TextColor="{AppThemeBinding Light={StaticResource Black}, Dark={StaticResource Gray100}}"/>
-            <Label Text="Correo@ejemplo.com"
-                   FontSize="Small"
+            <Label Grid.Column="0" Grid.Row="2" Text="Correo@ejemplo.com"
+                   FontSize="Small" Margin="7,0"
                    TextColor="{AppThemeBinding Light={StaticResource Gray600}, Dark={StaticResource Gray100}}"/>
-        </VerticalStackLayout>
+        </Grid>
+        
     </Shell.FlyoutHeader>
 
     <Shell.FlyoutFooter>
