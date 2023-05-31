@@ -15,7 +15,7 @@
             FontAttributes="Bold"/>
             <Label />
 
-            <Label Text="Correo electrónico"
+            <Label Text="Nombre de usuario"
                FontSize="Medium"
                HorizontalTextAlignment="Start"/>
 

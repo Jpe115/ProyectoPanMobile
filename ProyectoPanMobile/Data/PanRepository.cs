@@ -109,8 +109,17 @@ namespace ProyectoPanMobile.Data
         }
         #endregion
 
-        public async Task RegistrarUsuario(Usuarios usuario)
+        public async Task RegistrarUsuario(string nombre, string contra)
         {
+            Usuarios usuario = new Usuarios()
+            {
+                NombreUsuario = nombre,
+                Contraseña = contra,
+                Email = "",
+                Telefono = 0,
+                Direccion = "",
+                Foto = ""
+            };
             await _database.InsertAsync(usuario);
         }
 
@@ -152,12 +161,12 @@ namespace ProyectoPanMobile.Data
         public async Task<bool> isUsuarioRepetido(string nombre)
         {
             var listaUsuarios = await ListarUsuarios();
-            bool isRepetido = true;
+            bool isRepetido = false;
             foreach (Usuarios usuario in listaUsuarios)
             {
                 if (usuario.NombreUsuario == nombre)
                 {
-                    isRepetido = false;
+                    isRepetido = true;
                 }
             }
             return isRepetido;
