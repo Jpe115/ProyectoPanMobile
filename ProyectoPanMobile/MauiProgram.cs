@@ -1,4 +1,5 @@
 ﻿using CommunityToolkit.Maui;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using ProyectoPanMobile.Data;
 using ProyectoPanMobile.ViewModels;
@@ -27,7 +28,7 @@ public static class MauiProgram
 		builder.Services.AddTransient<DetallesPage>();
 		builder.Services.AddTransient<DetallesPageViewModel>();
 		builder.Services.AddTransient<Carrito>();
-		builder.Services.AddTransient<CarritoViewModel>();
+		builder.Services.AddSingleton<CarritoViewModel>();
 		builder.Services.AddSingleton<Cuenta>();
 		
 		//builder.Services.AddTransient<PanRepository,PanRepository>();

@@ -30,7 +30,7 @@ public partial class Inicio : ContentPage
         }
         else
         {
-            await Shell.Current.GoToAsync("//Login1");
+            await Shell.Current.GoToAsync("Login1");
         }
         await viewModel.CargarPanes();
         base.OnAppearing();
