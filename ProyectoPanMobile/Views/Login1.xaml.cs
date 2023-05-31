@@ -33,6 +33,7 @@ public partial class Login1 : ContentPage
             else
             {
                 await SecureStorage.SetAsync("isAuth", "true");
+                await SecureStorage.SetAsync("cuenta", email);
                 await Toast.Make("Sesión iniciada", ToastDuration.Short).Show();
                 await Shell.Current.GoToAsync("//Inicio");
             }

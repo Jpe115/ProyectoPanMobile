@@ -126,7 +126,7 @@ namespace ProyectoPanMobile.Data
             int existeUsuario = 0;
             foreach(Usuarios usuario in listaUsuarios)
             {
-                if(usuario.Email == cuenta && usuario.Contraseña == contra)
+                if(usuario.NombreUsuario == cuenta && usuario.Contraseña == contra)
                 {
                     existeUsuario = usuario.UsuarioID;
                     break;
@@ -135,13 +135,13 @@ namespace ProyectoPanMobile.Data
             return existeUsuario;
         }
 
-        public async Task<Usuarios> CualUsuario(int id)
+        public async Task<Usuarios> CualUsuario(string nombre)
         {
             var listaUsuarios = await ListarUsuarios();
             Usuarios elElegido = new Usuarios();
             foreach (Usuarios usuario in listaUsuarios)
             {
-                if(usuario.UsuarioID == id)
+                if(usuario.NombreUsuario == nombre)
                 {
                     elElegido = usuario;
                 }

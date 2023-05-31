@@ -1,5 +1,6 @@
 using CommunityToolkit.Maui.Alerts;
 using CommunityToolkit.Maui.Core;
+using ProyectoPanMobile.Data;
 
 namespace ProyectoPanMobile.Views;
 
@@ -17,7 +18,11 @@ public partial class Login2 : ContentPage
 			string email = Correo.Text;
 			string password = Contra.Text;
 			string confpassword = Confirmar.Text;
-			if (email == null || password == null || confpassword == null)
+
+            PanRepository panRepository = new PanRepository();
+            bool repetido = await panRepository.isUsuarioRepetido(email);
+
+            if (email == null || password == null || confpassword == null)
 			{
                 await DisplayAlert("Error O.o", "Alguno de los campos está vacío", "Ok");
             }
@@ -28,9 +33,15 @@ public partial class Login2 : ContentPage
             else if(confpassword != password)
 			{
                 await DisplayAlert("Error O.o", "Contraseñas no coinciden. Intente nuevamente", "Ok");
-            }else
+            }
+            else if (repetido)
+            {
+                await DisplayAlert("Error O.o", "Usuario ya existe", "Ok");
+            }
+            else
 			{
                 await SecureStorage.SetAsync("isAuth", "true");
+                await SecureStorage.SetAsync("cuenta",email);
                 await Toast.Make("Cuenta creada exitosamente", ToastDuration.Short).Show();
                 await Shell.Current.GoToAsync("//Inicio");
             }
