@@ -148,5 +148,19 @@ namespace ProyectoPanMobile.Data
             }
             return elElegido;
         }
+        
+        public async Task<bool> isUsuarioRepetido(string nombre)
+        {
+            var listaUsuarios = await ListarUsuarios();
+            bool isRepetido = true;
+            foreach (Usuarios usuario in listaUsuarios)
+            {
+                if (usuario.NombreUsuario == nombre)
+                {
+                    isRepetido = false;
+                }
+            }
+            return isRepetido;
+        }
     }
 }
