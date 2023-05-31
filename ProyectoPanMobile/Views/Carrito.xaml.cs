@@ -1,3 +1,5 @@
+using CommunityToolkit.Maui.Alerts;
+using CommunityToolkit.Maui.Core;
 using ProyectoPanMobile.Data;
 using ProyectoPanMobile.Models;
 using ProyectoPanMobile.ViewModels;
@@ -19,6 +21,7 @@ public partial class Carrito : ContentPage
         if (answer)
         {
             await panRepository.ReiniciarCarrito();
+            await Toast.Make("Pago realizado con éxito",ToastDuration.Short).Show();
             await vm.CargarCarrito();
         }
     }
