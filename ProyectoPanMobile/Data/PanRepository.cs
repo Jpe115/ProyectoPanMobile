@@ -123,6 +123,11 @@ namespace ProyectoPanMobile.Data
             await _database.InsertAsync(usuario);
         }
 
+        public async Task ModificarUsuario(Usuarios usuario)
+        {
+            await _database.UpdateAsync(usuario);
+        }
+
         public async Task<List<Usuarios>> ListarUsuarios()
         {
             var listaUsuarios = await _database.Table<Usuarios>().ToListAsync();
