@@ -27,25 +27,24 @@
                 <Label Text="Correo electrónico"
                    FontSize="Medium"
                    HorizontalTextAlignment="Start" />
-                <Switch x:Name="SwUsuario"/>
+                <Switch x:Name="SwUsuario" IsToggled="False" Toggled="SwUsuario_Toggled"/>
             </HorizontalStackLayout>
 
             <Entry Keyboard="Email" 
                x:Name="Correo"
                Text="{Binding UsuarioActivo.Email}"
                FontSize="Small"
+               IsEnabled="False"
                HorizontalTextAlignment="Start" 
                HorizontalOptions="Fill" />
 
             <HorizontalStackLayout Spacing="184">
                 <Label Text="Contraseña"
-               FontSize="Medium"
-               HorizontalTextAlignment="Start"/>
-                <Switch x:Name="SwContra">
-                    <Switch.GestureRecognizers>
-                        <TapGestureRecognizer />
-                    </Switch.GestureRecognizers>
-                </Switch>
+                    FontSize="Medium"
+                    HorizontalTextAlignment="Start"/>
+                <Switch x:Name="SwContra"
+                        IsToggled="False"
+                        Toggled="SwContra_Toggled"/>
             </HorizontalStackLayout>
             
 
@@ -53,6 +52,7 @@
                x:Name="Contra"
                Text="{Binding UsuarioActivo.Contraseña}"
                FontSize="Small"
+               IsEnabled="False"
                HorizontalTextAlignment="Start" 
                HorizontalOptions="Fill" />
 
@@ -63,6 +63,7 @@
             <Entry Keyboard="Text" 
                x:Name="Confirmar"
                FontSize="Small"
+               IsEnabled="False"
                HorizontalTextAlignment="Start" 
                HorizontalOptions="Fill" />
 

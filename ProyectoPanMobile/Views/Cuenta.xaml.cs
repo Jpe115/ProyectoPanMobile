@@ -23,4 +23,29 @@ public partial class Cuenta : ContentPage
 		await viewModel.ObtenerUsuario();
         base.OnAppearing();
     }
+
+    private void SwContra_Toggled(object sender, ToggledEventArgs e)
+    {
+		if (Contra.IsEnabled == true && Confirmar.IsEnabled == true){
+			Contra.IsEnabled = true;
+			Confirmar.IsEnabled = true;
+		}
+		else
+		{
+			Contra.IsEnabled = false;
+			Confirmar.IsEnabled = false;
+		}
+    }
+
+    private void SwUsuario_Toggled(object sender, ToggledEventArgs e)
+    {
+		if (Correo.IsEnabled == true)
+		{
+			Correo.IsEnabled = false;
+		}
+		else
+		{
+			Correo.IsEnabled = true;
+		}
+    }
 }
