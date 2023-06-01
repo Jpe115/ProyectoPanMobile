@@ -27,9 +27,8 @@
                 <Label Text="Correo electrónico"
                    FontSize="Medium"
                    HorizontalTextAlignment="Start" />
-                <Switch/>
+                <Switch x:Name="SwUsuario"/>
             </HorizontalStackLayout>
-            
 
             <Entry Keyboard="Email" 
                x:Name="Correo"
@@ -42,7 +41,11 @@
                 <Label Text="Contraseña"
                FontSize="Medium"
                HorizontalTextAlignment="Start"/>
-                <Switch/>
+                <Switch x:Name="SwContra">
+                    <Switch.GestureRecognizers>
+                        <TapGestureRecognizer />
+                    </Switch.GestureRecognizers>
+                </Switch>
             </HorizontalStackLayout>
             
 
