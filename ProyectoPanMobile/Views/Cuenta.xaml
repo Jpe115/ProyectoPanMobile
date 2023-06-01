@@ -11,6 +11,7 @@
         <VerticalStackLayout Padding="10" Spacing="13" Margin="17">
 
             <skia:SKLottieView Source="logo.json" RepeatCount="-1" RepeatMode="Restart" HeightRequest="170"/>
+
             <Label Text="Nombre de usuario"
                FontSize="Medium"
                HorizontalTextAlignment="Start" />
@@ -22,9 +23,13 @@
                HorizontalTextAlignment="Start" 
                HorizontalOptions="Fill" />
 
-            <Label Text="Correo electrónico"
+            <HorizontalStackLayout Spacing="127">
+                <Label Text="Correo electrónico"
                    FontSize="Medium"
                    HorizontalTextAlignment="Start" />
+                <Switch/>
+            </HorizontalStackLayout>
+            
 
             <Entry Keyboard="Email" 
                x:Name="Correo"
@@ -33,9 +38,13 @@
                HorizontalTextAlignment="Start" 
                HorizontalOptions="Fill" />
 
-            <Label Text="Contraseña"
+            <HorizontalStackLayout Spacing="184">
+                <Label Text="Contraseña"
                FontSize="Medium"
                HorizontalTextAlignment="Start"/>
+                <Switch/>
+            </HorizontalStackLayout>
+            
 
             <Entry Keyboard="Text" 
                x:Name="Contra"
