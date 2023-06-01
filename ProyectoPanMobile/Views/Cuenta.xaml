@@ -53,6 +53,7 @@
                Text="{Binding UsuarioActivo.Contraseña}"
                FontSize="Small"
                IsEnabled="False"
+               IsPassword="True"
                HorizontalTextAlignment="Start" 
                HorizontalOptions="Fill" />
 
@@ -64,6 +65,7 @@
                x:Name="Confirmar"
                FontSize="Small"
                IsEnabled="False"
+               IsPassword="True"
                HorizontalTextAlignment="Start" 
                HorizontalOptions="Fill" />
 

@@ -27,13 +27,13 @@ public partial class Cuenta : ContentPage
     private void SwContra_Toggled(object sender, ToggledEventArgs e)
     {
 		if (Contra.IsEnabled == true && Confirmar.IsEnabled == true){
-			Contra.IsEnabled = true;
-			Confirmar.IsEnabled = true;
+			Contra.IsEnabled = false;
+			Confirmar.IsEnabled = false;
 		}
 		else
 		{
-			Contra.IsEnabled = false;
-			Confirmar.IsEnabled = false;
+			Contra.IsEnabled = true;
+			Confirmar.IsEnabled = true;
 		}
     }
 
