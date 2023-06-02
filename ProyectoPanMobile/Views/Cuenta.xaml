@@ -3,14 +3,24 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:skia="clr-namespace:SkiaSharp.Extended.UI.Controls;assembly=SkiaSharp.Extended.UI"
              xmlns:local="clr-namespace:ProyectoPanMobile.ViewModels"
-             x:DataType="local:CuentaViewModel"             
+             x:DataType="local:CuentaViewModel"     
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
              xmlns:model="clr-namespace:ProyectoPanMobile.Models"
              x:Class="ProyectoPanMobile.Views.Cuenta"
              Title="Cuenta">
     <ScrollView>
         <VerticalStackLayout Padding="10" Spacing="13" Margin="17">
 
-            <skia:SKLottieView Source="logo.json" RepeatCount="-1" RepeatMode="Restart" HeightRequest="120"/>
+            <toolkit:AvatarView ImageSource="paydequeso.png"  BorderColor="BlanchedAlmond" HeightRequest="70" WidthRequest="70" CornerRadius="70">
+                
+            </toolkit:AvatarView>
+            <Frame HeightRequest="70" WidthRequest="70" BackgroundColor="Aquamarine" CornerRadius="70" IsClippedToBounds="True" HasShadow="True" HorizontalOptions="Center">
+                <Image Source="paydefresa.png" Aspect="AspectFill" HeightRequest="50" WidthRequest="50"/>
+            </Frame>
+            <Frame HeightRequest="140" WidthRequest="140" BackgroundColor="Aquamarine" CornerRadius="70" IsClippedToBounds="False" HasShadow="True" HorizontalOptions="Center">
+                <skia:SKLottieView Source="logo.json" RepeatCount="-1" RepeatMode="Restart" HeightRequest="120"/>
+            </Frame>
+            
 
             <Label Text="Nombre de usuario"
                FontSize="Medium"

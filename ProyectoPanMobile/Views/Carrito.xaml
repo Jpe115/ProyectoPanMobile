@@ -13,7 +13,7 @@
             Text="Vaciar"  
             IconImageSource="delete.png"
             Order="Primary"
-            Clicked="Pagar" />
+            Clicked="Vaciar" />
     </ContentPage.ToolbarItems>
 
     <Grid ColumnDefinitions="*" RowDefinitions="*,90">
