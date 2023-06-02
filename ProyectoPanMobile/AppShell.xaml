@@ -13,9 +13,9 @@
     <Shell.FlyoutHeader>
         <Grid BackgroundColor="{AppThemeBinding Dark={StaticResource Gray950},Light={StaticResource SBlanco}}" 
               ColumnDefinitions="*,60" RowDefinitions="75,25,30">
-            <Image Grid.Column="0" Grid.Row="0" Source="bakery.png"
+            <Image Grid.Column="0" Grid.Row="0" Source="{Binding UsuarioActivo.Foto}"
                    HeightRequest="50"
-                   Margin="13"
+                   Margin="16"
                    HorizontalOptions="Start"/>
             <ImageButton Grid.Column="1" Grid.Row="0" Source="logout.png"
                          x:Name="CerrarSesion"

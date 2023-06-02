@@ -11,16 +11,10 @@
     <ScrollView>
         <VerticalStackLayout Padding="10" Spacing="13" Margin="17">
 
-            <toolkit:AvatarView ImageSource="paydequeso.png"  BorderColor="BlanchedAlmond" HeightRequest="70" WidthRequest="70" CornerRadius="70">
-                
-            </toolkit:AvatarView>
-            <Frame HeightRequest="70" WidthRequest="70" BackgroundColor="Aquamarine" CornerRadius="70" IsClippedToBounds="True" HasShadow="True" HorizontalOptions="Center">
-                <Image Source="paydefresa.png" Aspect="AspectFill" HeightRequest="50" WidthRequest="50"/>
-            </Frame>
-            <Frame HeightRequest="140" WidthRequest="140" BackgroundColor="Aquamarine" CornerRadius="70" IsClippedToBounds="False" HasShadow="True" HorizontalOptions="Center">
+            <Frame HeightRequest="125" WidthRequest="125" BackgroundColor="Aquamarine" CornerRadius="70" IsClippedToBounds="False" HasShadow="True" HorizontalOptions="Center">
                 <skia:SKLottieView Source="logo.json" RepeatCount="-1" RepeatMode="Restart" HeightRequest="120"/>
             </Frame>
-            
+
 
             <Label Text="Nombre de usuario"
                FontSize="Medium"
@@ -84,6 +78,21 @@
                FontSize="Medium"
                HorizontalTextAlignment="Start"  />
 
+            <Grid ColumnDefinitions="*" RowDefinitions="88" x:Name="fotos" IsVisible="False">
+                <ScrollView Grid.Column="0" Grid.Row="0" Orientation="Horizontal">
+                    <HorizontalStackLayout Spacing="28"   HeightRequest="150" Margin="15,0">
+                        <ImageButton Source="cake.png" Clicked="A_Clicked" VerticalOptions="Start" HeightRequest="78" WidthRequest="70"/>
+                        <ImageButton Source="bake.png" Clicked="B_Clicked" WidthRequest="70" HeightRequest="78" VerticalOptions="Start"/>
+                        <ImageButton Source="cookies.png" Clicked="C_Clicked" WidthRequest="70" HeightRequest="78" VerticalOptions="Start"/>
+                        <ImageButton Source="bakery.png" Clicked="D_Clicked" VerticalOptions="Start" HeightRequest="78" WidthRequest="70"/>
+                    </HorizontalStackLayout>
+                </ScrollView>
+            </Grid>
+
+            <Button x:Name="Cambiar" Text="Cambiar" HorizontalOptions="Start" FontSize="Small"
+                    CornerRadius="13" Padding="10" Clicked="Cambiar_Clicked"
+                    BackgroundColor="{AppThemeBinding Dark={StaticResource Primary}, Light={StaticResource Primary}}"/>
+
             <Label Text="Número de teléfono"
                FontSize="Medium"
                HorizontalTextAlignment="Start"  />
@@ -110,7 +119,7 @@
 
             <Button Text="Guardar cambios"
                 x:Name="BtnGuardar"
-                BackgroundColor="{AppThemeBinding Dark={StaticResource SAzul}, Light={StaticResource Primary}}"
+                BackgroundColor="{AppThemeBinding Dark={StaticResource Primary}, Light={StaticResource Primary}}"
                 FontSize="Subtitle"
                 CornerRadius="13"
                 HorizontalOptions="Center"
