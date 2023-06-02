@@ -7,7 +7,7 @@
              x:DataType="local:DetallesPageViewModel"
              Title="Detalles">
 
-    <Grid ColumnDefinitions="34,*,200" RowDefinitions="190,*,90">
+    <Grid ColumnDefinitions="30,*,200" RowDefinitions="190,*,90">
 
         <Image Source="{Binding Panecito.Imagen}" Grid.ColumnSpan="3" Grid.Row="0" HeightRequest="160"/>
 
@@ -44,8 +44,8 @@
                 FontSize="Subtitle"
                 CornerRadius="13"
                 HorizontalOptions="End"
-                Margin="34,20"
+                Margin="30,20"
                 Padding="32,0"
-                BackgroundColor="{AppThemeBinding Dark={StaticResource SAzul}, Light={StaticResource Primary}}"/>
+                BackgroundColor="{AppThemeBinding Dark={StaticResource Primary}, Light={StaticResource Primary}}"/>
     </Grid>
 </ContentPage>

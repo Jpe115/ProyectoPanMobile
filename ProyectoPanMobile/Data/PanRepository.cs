@@ -118,7 +118,7 @@ namespace ProyectoPanMobile.Data
                 Email = "",
                 Telefono = 0,
                 Direccion = "",
-                Foto = ""
+                Foto = "bakery.png"
             };
             await _database.InsertAsync(usuario);
         }

@@ -132,4 +132,43 @@ public partial class Cuenta : ContentPage
         }
 
     }
+
+    private void Cambiar_Clicked(object sender, EventArgs e)
+    {
+        fotos.IsVisible = true;
+        Cambiar.IsVisible = false;
+    }
+
+    private async void A_Clicked(object sender, EventArgs e)
+    {
+        fotos.IsVisible = false;
+        Cambiar.IsVisible = true;
+        viewModel.UsuarioActivo.Foto = "cake.png";
+        await panRepository.ModificarUsuario(viewModel.UsuarioActivo);
+        await Toast.Make("Imagen de su cuenta actualizada", ToastDuration.Short).Show();
+    }
+    private async void B_Clicked(object sender, EventArgs e)
+    {
+        fotos.IsVisible = false;
+        Cambiar.IsVisible = true;
+        viewModel.UsuarioActivo.Foto = "bake.png";
+        await panRepository.ModificarUsuario(viewModel.UsuarioActivo);
+        await Toast.Make("Imagen de su cuenta actualizada", ToastDuration.Short).Show();
+    }
+    private async void C_Clicked(object sender, EventArgs e)
+    {
+        fotos.IsVisible = false;
+        Cambiar.IsVisible = true;
+        viewModel.UsuarioActivo.Foto = "cookies.png";
+        await panRepository.ModificarUsuario(viewModel.UsuarioActivo);
+        await Toast.Make("Imagen de su cuenta actualizada", ToastDuration.Short).Show();
+    }
+    private async void D_Clicked(object sender, EventArgs e)
+    {
+        fotos.IsVisible = false;
+        Cambiar.IsVisible = true;
+        viewModel.UsuarioActivo.Foto = "bakery.png";
+        await panRepository.ModificarUsuario(viewModel.UsuarioActivo);
+        await Toast.Make("Imagen de su cuenta actualizada", ToastDuration.Short).Show();
+    }
 }
