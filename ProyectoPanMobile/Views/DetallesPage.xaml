@@ -22,6 +22,8 @@
             <Label Text="{Binding Panecito.Descripcion}" FontSize="Medium" HorizontalOptions="Fill"/>
         </VerticalStackLayout>
 
+        <Label  BackgroundColor="{AppThemeBinding Light={StaticResource Gray100}, Dark={StaticResource Gray950}}" Grid.Row="2" Grid.ColumnSpan="3"/>
+        
         <HorizontalStackLayout Grid.Column="1" Grid.Row="2" Spacing="15" >
                 <Button Text="-" FontSize="Medium" VerticalOptions="Center" Padding="0"  Command="{Binding MinusCommand}"  CornerRadius="13" BorderWidth="1"
                 BorderColor="{AppThemeBinding Light={StaticResource Transparente}, Dark={StaticResource SBlanco}}"/>
@@ -33,6 +35,7 @@
                 BorderColor="{AppThemeBinding Light={StaticResource Transparente}, Dark={StaticResource SBlanco}}"/>
    
         </HorizontalStackLayout>
+
         <Button Text="Agregar"
                 Grid.Row="2"
                 Grid.Column="3"
