@@ -19,6 +19,9 @@ namespace ProyectoPanMobile.ViewModels
         [ObservableProperty]
         int steppervalue = 1;
 
+        [ObservableProperty]
+        int subtotal;
+
         public CarritoViewModel()
         {
             panesList = new ObservableCollection<PanesCarrito>();
@@ -79,6 +82,7 @@ namespace ProyectoPanMobile.ViewModels
                 {
                     pan.Cantidad += 1;
                     await CargarCarrito(pan);
+                    await CalcularSubtotal();
                 });
             }
         }
@@ -92,8 +96,23 @@ namespace ProyectoPanMobile.ViewModels
                 {
                     pan.Cantidad -= 1;
                     await CargarCarrito(pan);
+                    await CalcularSubtotal();
                 });
             }
+        }
+
+
+        public async Task CalcularSubtotal()
+        {
+            await Task.Run(() =>
+            {
+                int sub = 0;
+                foreach (var pan in panesList)
+                {
+                    sub += (pan.Cantidad * pan.Precio);
+                }
+                Subtotal = sub;
+            });
         }
     }
 }

@@ -25,10 +25,21 @@ public partial class Carrito : ContentPage
             await vm.CargarCarrito();
         }
     }
+    private async void Vaciar(object sender, EventArgs e)
+    {
+        bool answer = await DisplayAlert("¿Desea vaciar su lista de compras?", null, "Eliminar", "Mejor no");
+        if (answer)
+        {
+            await panRepository.ReiniciarCarrito();
+            await Toast.Make("Elementos del carrito eliminados", ToastDuration.Short).Show();
+            await vm.CargarCarrito();
+        }
+    }
     protected override async void OnAppearing()
     {
         await vm.CargarCarrito();
         base.OnAppearing();
+        await vm.CalcularSubtotal();
     }
 
     string[] fotos = { "pastel3leches.jpg", "pastelfrutosrojos.png", "pasteldechocolate.png",

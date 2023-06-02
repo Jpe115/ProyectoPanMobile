@@ -10,7 +10,7 @@
     <ScrollView>
         <VerticalStackLayout Padding="10" Spacing="13" Margin="17">
 
-            <skia:SKLottieView Source="logo.json" RepeatCount="-1" RepeatMode="Restart" HeightRequest="170"/>
+            <skia:SKLottieView Source="logo.json" RepeatCount="-1" RepeatMode="Restart" HeightRequest="130"/>
 
             <Label Text="Nombre de usuario"
                FontSize="Medium"
@@ -19,9 +19,10 @@
             <Entry Keyboard="Chat" 
                x:Name="Usuario"
                Text="{Binding UsuarioActivo.NombreUsuario}"
-               FontSize="Small"
+               FontSize="Subtitle"
                HorizontalTextAlignment="Start" 
-               HorizontalOptions="Fill" />
+               HorizontalOptions="Fill"
+               MaxLength="15"/>
 
             <HorizontalStackLayout Spacing="127">
                 <Label Text="Correo electrónico"
@@ -33,7 +34,7 @@
             <Entry Keyboard="Email" 
                x:Name="Correo"
                Text="{Binding UsuarioActivo.Email}"
-               FontSize="Small"
+               FontSize="Subtitle"
                IsEnabled="False"
                HorizontalTextAlignment="Start" 
                HorizontalOptions="Fill" />
@@ -51,7 +52,7 @@
             <Entry Keyboard="Text" 
                x:Name="Contra"
                Text="{Binding UsuarioActivo.Contraseña}"
-               FontSize="Small"
+               FontSize="Subtitle"
                IsEnabled="False"
                IsPassword="True"
                HorizontalTextAlignment="Start" 
@@ -63,7 +64,7 @@
 
             <Entry Keyboard="Text" 
                x:Name="Confirmar"
-               FontSize="Small"
+               FontSize="Subtitle"
                IsEnabled="False"
                IsPassword="True"
                HorizontalTextAlignment="Start" 
@@ -80,9 +81,10 @@
             <Entry Keyboard="Telephone" 
                x:Name="Telefono"
                Text="{Binding UsuarioActivo.Telefono}"
-               FontSize="Small"
+               FontSize="Subtitle"
                HorizontalTextAlignment="Start" 
-               HorizontalOptions="Fill" />
+               HorizontalOptions="Fill"
+               MaxLength="10"/>
 
             <Label Text="Dirección de entrega"
                FontSize="Medium"
@@ -91,20 +93,19 @@
             <Entry Keyboard="Text" 
                x:Name="Direccion"
                Text="{Binding UsuarioActivo.Direccion}"
-               FontSize="Small"
-               HorizontalTextAlignment="Start" 
+               FontSize="Subtitle"
+               HorizontalTextAlignment="Start"
+               MaxLength="30"
                HorizontalOptions="Fill" />
 
             <Button Text="Guardar cambios"
                 x:Name="BtnGuardar"
-                
+                BackgroundColor="{AppThemeBinding Dark={StaticResource SAzul}, Light={StaticResource Primary}}"
                 FontSize="Subtitle"
                 CornerRadius="13"
                 HorizontalOptions="Center"
-                Margin="5"
-                Clicked="BtnGuardar_Clicked"
-                BorderWidth="1"
-                BorderColor="{AppThemeBinding Light={StaticResource Transparente}, Dark={StaticResource SBlanco}}"/>
+                Margin="15"
+                Clicked="BtnGuardar_Clicked"/>
         </VerticalStackLayout>
     </ScrollView>
 </ContentPage>

@@ -11,11 +11,12 @@
         <ToolbarItem 
             x:Name="PagarCarrito" 
             Text="Vaciar"  
+            IconImageSource="delete.png"
             Order="Primary"
             Clicked="Pagar" />
     </ContentPage.ToolbarItems>
 
-    <Grid ColumnDefinitions="*" RowDefinitions="*,80">
+    <Grid ColumnDefinitions="*" RowDefinitions="*,90">
 
         <ScrollView Grid.Row="0" Grid.Column="0">
             <CollectionView ItemsSource="{Binding panesList}">
@@ -52,9 +53,9 @@
 
         <Label  BackgroundColor="{AppThemeBinding Light={StaticResource Gray100}, Dark={StaticResource Gray950}}" Grid.Row="1" Grid.Column="0"/>
 
-        <Label Text="Subtotal:" Grid.Column="0" Grid.Row="1" FontSize="Subtitle" VerticalOptions="Center"/>
+        <Label Text="{Binding Subtotal,StringFormat='Subtotal: ${0}'}" FontAttributes="Bold" Grid.Column="0" Grid.Row="1" FontSize="Subtitle" VerticalOptions="Center" Margin="18"/>
 
         <Button Grid.Row="1" Grid.Column="0" BackgroundColor="{AppThemeBinding Dark={StaticResource Primary}, Light={StaticResource SAzul}}" Text="Ir a pagar" HorizontalOptions="End"
-                Margin="15"/>
+                CornerRadius="13" Margin="20,18" Clicked="Pagar"/>
     </Grid>
 </ContentPage>
