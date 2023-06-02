@@ -55,7 +55,7 @@
 
         <Label Text="{Binding Subtotal,StringFormat='Subtotal: ${0}'}" FontAttributes="Bold" Grid.Column="0" Grid.Row="1" FontSize="Subtitle" VerticalOptions="Center" Margin="18"/>
 
-        <Button Grid.Row="1" Grid.Column="0" BackgroundColor="{AppThemeBinding Dark={StaticResource Primary}, Light={StaticResource SAzul}}" Text="Ir a pagar" HorizontalOptions="End"
+        <Button Grid.Row="1" Grid.Column="0" BackgroundColor="{AppThemeBinding Dark={StaticResource Primary}, Light={StaticResource Primary}}" Text="Ir a pagar" HorizontalOptions="End"
                 CornerRadius="13" Margin="20,18" Clicked="Pagar"/>
     </Grid>
 </ContentPage>
