@@ -2,39 +2,58 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:skia="clr-namespace:SkiaSharp.Extended.UI.Controls;assembly=SkiaSharp.Extended.UI"
+             xmlns:local="clr-namespace:ProyectoPanMobile.ViewModels"
+             x:DataType="local:CuentaViewModel"             
+             xmlns:model="clr-namespace:ProyectoPanMobile.Models"
              x:Class="ProyectoPanMobile.Views.Cuenta"
              Title="Cuenta">
     <ScrollView>
         <VerticalStackLayout Padding="10" Spacing="13" Margin="17">
 
-            <skia:SKLottieView Source="logo.json" RepeatCount="-1" RepeatMode="Restart" HeightRequest="200"/>
+            <skia:SKLottieView Source="logo.json" RepeatCount="-1" RepeatMode="Restart" HeightRequest="170"/>
+
             <Label Text="Nombre de usuario"
                FontSize="Medium"
                HorizontalTextAlignment="Start" />
 
             <Entry Keyboard="Chat" 
                x:Name="Usuario"
+               Text="{Binding UsuarioActivo.NombreUsuario}"
                FontSize="Small"
                HorizontalTextAlignment="Start" 
                HorizontalOptions="Fill" />
 
-            <Label Text="Correo electrónico"
-               FontSize="Medium"
-               HorizontalTextAlignment="Start" />
+            <HorizontalStackLayout Spacing="127">
+                <Label Text="Correo electrónico"
+                   FontSize="Medium"
+                   HorizontalTextAlignment="Start" />
+                <Switch x:Name="SwUsuario" IsToggled="False" Toggled="SwUsuario_Toggled"/>
+            </HorizontalStackLayout>
 
             <Entry Keyboard="Email" 
                x:Name="Correo"
+               Text="{Binding UsuarioActivo.Email}"
                FontSize="Small"
+               IsEnabled="False"
                HorizontalTextAlignment="Start" 
                HorizontalOptions="Fill" />
 
-            <Label Text="Contraseña"
-               FontSize="Medium"
-               HorizontalTextAlignment="Start"/>
+            <HorizontalStackLayout Spacing="184">
+                <Label Text="Contraseña"
+                    FontSize="Medium"
+                    HorizontalTextAlignment="Start"/>
+                <Switch x:Name="SwContra"
+                        IsToggled="False"
+                        Toggled="SwContra_Toggled"/>
+            </HorizontalStackLayout>
+            
 
             <Entry Keyboard="Text" 
                x:Name="Contra"
+               Text="{Binding UsuarioActivo.Contraseña}"
                FontSize="Small"
+               IsEnabled="False"
+               IsPassword="True"
                HorizontalTextAlignment="Start" 
                HorizontalOptions="Fill" />
 
@@ -45,6 +64,8 @@
             <Entry Keyboard="Text" 
                x:Name="Confirmar"
                FontSize="Small"
+               IsEnabled="False"
+               IsPassword="True"
                HorizontalTextAlignment="Start" 
                HorizontalOptions="Fill" />
 
@@ -58,6 +79,7 @@
 
             <Entry Keyboard="Telephone" 
                x:Name="Telefono"
+               Text="{Binding UsuarioActivo.Telefono}"
                FontSize="Small"
                HorizontalTextAlignment="Start" 
                HorizontalOptions="Fill" />
@@ -68,6 +90,7 @@
 
             <Entry Keyboard="Text" 
                x:Name="Direccion"
+               Text="{Binding UsuarioActivo.Direccion}"
                FontSize="Small"
                HorizontalTextAlignment="Start" 
                HorizontalOptions="Fill" />
@@ -79,7 +102,7 @@
                 CornerRadius="13"
                 HorizontalOptions="Center"
                 Margin="5"
-                
+                Clicked="BtnGuardar_Clicked"
                 BorderWidth="1"
                 BorderColor="{AppThemeBinding Light={StaticResource Transparente}, Dark={StaticResource SBlanco}}"/>
         </VerticalStackLayout>

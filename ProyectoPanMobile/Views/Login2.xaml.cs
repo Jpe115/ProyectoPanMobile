@@ -1,3 +1,7 @@
+using CommunityToolkit.Maui.Alerts;
+using CommunityToolkit.Maui.Core;
+using ProyectoPanMobile.Data;
+
 namespace ProyectoPanMobile.Views;
 
 public partial class Login2 : ContentPage
@@ -11,10 +15,14 @@ public partial class Login2 : ContentPage
     {
 		try
 		{
-			string email = Correo.Text;
+			string usuario = Correo.Text;
 			string password = Contra.Text;
 			string confpassword = Confirmar.Text;
-			if (email == null || password == null || confpassword == null)
+
+            PanRepository panRepository = new PanRepository();
+            bool repetido = await panRepository.isUsuarioRepetido(usuario);
+
+            if (usuario == null || password == null || confpassword == null)
 			{
                 await DisplayAlert("Error O.o", "Alguno de los campos está vacío", "Ok");
             }
@@ -25,10 +33,19 @@ public partial class Login2 : ContentPage
             else if(confpassword != password)
 			{
                 await DisplayAlert("Error O.o", "Contraseñas no coinciden. Intente nuevamente", "Ok");
-            }else
+            }
+            else if (repetido)
+            {
+                await DisplayAlert("Error O.o", "Usuario ya existe", "Ok");
+            }
+            else
 			{
+                await panRepository.RegistrarUsuario(usuario, password);
                 await SecureStorage.SetAsync("isAuth", "true");
-                await DisplayAlert("Bien :D", "Cuenta creada exitosamente", "Ok");
+                int cual = await panRepository.ExisteUsuario(usuario,password);
+                string id = cual.ToString();
+                await SecureStorage.SetAsync("cuenta",id);
+                await Toast.Make("Cuenta creada exitosamente", ToastDuration.Short).Show();
                 await Shell.Current.GoToAsync("//Inicio");
             }
 		}catch (Exception ex)

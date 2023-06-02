@@ -21,7 +21,7 @@ namespace ProyectoPanMobile.Data
             _database.CreateTableAsync<Usuarios>();
             _database.CreateTableAsync<PanesCarrito>();
         }
-
+        #region
         public async Task<List<Panes>> PanesLista() {
             return await _database.Table<Panes>().ToListAsync();
         }
@@ -67,7 +67,7 @@ namespace ProyectoPanMobile.Data
         public async Task ActualizarImagenes(string[] imgs)
         {
             var lista = await PanesLista();
-            for (int i=0; i<imgs.Length; i++)
+            for (int i = 0; i < imgs.Length; i++)
             {
                 lista[i].Imagen = imgs[i];
                 await _database.UpdateAsync(lista[i]);
@@ -76,17 +76,17 @@ namespace ProyectoPanMobile.Data
         public async Task ImgsACarrito(string[] imgs)
         {
             var lista = await Carrito();
-            foreach(var pan in lista)
+            foreach (var pan in lista)
             {
                 switch (pan.PanID)
                 {
-                    case 1: 
-                        pan.Imagen = imgs[pan.PanID-1];
-                        break; 
-                    case 2: 
+                    case 1:
                         pan.Imagen = imgs[pan.PanID - 1];
-                        break; 
-                    case 3: pan.Imagen = imgs[pan.PanID-1];
+                        break;
+                    case 2:
+                        pan.Imagen = imgs[pan.PanID - 1];
+                        break;
+                    case 3: pan.Imagen = imgs[pan.PanID - 1];
                         break;
                     case 4:
                         pan.Imagen = imgs[pan.PanID - 1];
@@ -106,6 +106,75 @@ namespace ProyectoPanMobile.Data
                 }
                 await _database.UpdateAsync(pan);
             }
+        }
+        #endregion
+
+        public async Task RegistrarUsuario(string nombre, string contra)
+        {
+            Usuarios usuario = new Usuarios()
+            {
+                NombreUsuario = nombre,
+                Contraseña = contra,
+                Email = "",
+                Telefono = 0,
+                Direccion = "",
+                Foto = ""
+            };
+            await _database.InsertAsync(usuario);
+        }
+
+        public async Task ModificarUsuario(Usuarios usuario)
+        {
+            await _database.UpdateAsync(usuario);
+        }
+
+        public async Task<List<Usuarios>> ListarUsuarios()
+        {
+            var listaUsuarios = await _database.Table<Usuarios>().ToListAsync();
+            return listaUsuarios;
+        }
+
+        public async Task<int> ExisteUsuario(string cuenta, string contra)
+        {
+            var listaUsuarios = await ListarUsuarios();
+            int existeUsuario = 0;
+            foreach(Usuarios usuario in listaUsuarios)
+            {
+                if(usuario.NombreUsuario == cuenta && usuario.Contraseña == contra)
+                {
+                    existeUsuario = usuario.UsuarioID;
+                    break;
+                }
+            }
+            return existeUsuario;
+        }
+
+        public async Task<Usuarios> CualUsuario(int id)
+        {
+            var listaUsuarios = await ListarUsuarios();
+            Usuarios elElegido = new Usuarios();
+            foreach (Usuarios usuario in listaUsuarios)
+            {
+                if(usuario.UsuarioID == id)
+                {
+                    elElegido = usuario;
+                }
+            }
+            return elElegido;
+        }
+        
+        public async Task<bool> isUsuarioRepetido(string nombre)
+        {
+            var listaUsuarios = await ListarUsuarios();
+            bool isRepetido = false;
+            foreach (Usuarios usuario in listaUsuarios)
+            {
+                if (usuario.NombreUsuario == nombre)
+                {
+                    isRepetido = true;
+                }
+            }
+            return isRepetido;
         }
     }
 }

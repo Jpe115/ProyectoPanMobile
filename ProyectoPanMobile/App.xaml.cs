@@ -11,7 +11,6 @@ public partial class App : Application
 	{
 		InitializeComponent();
 		MainPage = new AppShell();
-        //Shell.Current.GoToAsync(nameof(Login1));
 		VersionTracking.Track();
 		if (VersionTracking.IsFirstLaunchEver)
 		{

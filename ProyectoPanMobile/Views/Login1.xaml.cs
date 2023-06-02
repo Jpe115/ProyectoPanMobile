@@ -1,6 +1,8 @@
+using CommunityToolkit.Maui.Alerts;
 using CommunityToolkit.Maui.Core;
 using CommunityToolkit.Maui.Core.Platform;
 using Microsoft.Maui.Controls.Xaml;
+using ProyectoPanMobile.Data;
 using ProyectoPanMobile.Models;
 
 namespace ProyectoPanMobile.Views;
@@ -19,9 +21,12 @@ public partial class Login1 : ContentPage
     {
         try
         {
-            string email = Correo.Text;
+            string usuario = Correo.Text;
             string password = Contra.Text;
-            if (email == null || password == null)
+
+            PanRepository panRepository = new PanRepository();
+            int existe = await panRepository.ExisteUsuario(usuario, password);
+            if (usuario == null || password == null)
             {
                 await DisplayAlert("Error O.o", "Alguno de los campos está vacío", "Ok");
             }
@@ -29,10 +34,17 @@ public partial class Login1 : ContentPage
             {
                 await DisplayAlert("Error O.o", "La contraseña debe contener al menos 4 caracteres", "Ok");
             }
+            else if(existe !=0)
+            {
+                string id = existe.ToString();
+                await SecureStorage.SetAsync("isAuth", "true");
+                await SecureStorage.SetAsync("cuenta", id);
+                await Toast.Make("Sesión iniciada", ToastDuration.Short).Show();
+                await Shell.Current.GoToAsync("//Inicio");
+            }
             else
             {
-                await SecureStorage.SetAsync("isAuth", "true");
-                await Shell.Current.GoToAsync("//Inicio");
+                await DisplayAlert("Error 0.o","Contraseña o nombre de usuario incorrectos. ¿Ya ha creado su cuenta?", "Ok");
             }
         }
         catch (Exception ex)

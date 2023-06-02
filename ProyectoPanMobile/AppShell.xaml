@@ -6,29 +6,29 @@
     xmlns:local="clr-namespace:ProyectoPanMobile.Views"
     Shell.FlyoutBehavior="Flyout" 
     Shell.FlyoutWidth="340"
+    xmlns:vm="clr-namespace:ProyectoPanMobile.ViewModels"
+    x:DataType="vm:AppShellViewModel"
     xmlns:m="clr-namespace:CommunityToolkit.Maui;assembly=CommunityToolkit.Maui"  >
 
     <Shell.FlyoutHeader>
-        <VerticalStackLayout Padding="13" Spacing="8" 
-                            BackgroundColor="{AppThemeBinding Light={StaticResource SBlanco}, Dark={StaticResource SGris}}">
-            <HorizontalStackLayout>
-                <Image Source="bakery.png"
-                       HeightRequest="51"
-                       HorizontalOptions="Start"/>
-                <ImageButton Source="logout.png"
-                             x:Name="CerrarSesion"
-                             HeightRequest="30"
-                             HorizontalOptions="End"
-                             Clicked="CerrarSesion_Clicked"/>
-            </HorizontalStackLayout>
-            
-            <Label Text="Usuario Ejemplo"
-                   FontSize="Small"
+        <Grid BackgroundColor="{AppThemeBinding Dark={StaticResource Gray950},Light={StaticResource SBlanco}}" 
+              ColumnDefinitions="*,60" RowDefinitions="75,25,30">
+            <Image Grid.Column="0" Grid.Row="0" Source="bakery.png"
+                   HeightRequest="50"
+                   Margin="13"
+                   HorizontalOptions="Start"/>
+            <ImageButton Grid.Column="1" Grid.Row="0" Source="logout.png"
+                         x:Name="CerrarSesion"
+                         HeightRequest="30"
+                         Clicked="CerrarSesion_Clicked"/>
+            <Label Grid.Column="0" Grid.Row="1" Text="{Binding UsuarioActivo.NombreUsuario}"
+                   FontSize="Small" Margin="7,0"
                    TextColor="{AppThemeBinding Light={StaticResource Black}, Dark={StaticResource Gray100}}"/>
-            <Label Text="Correo@ejemplo.com"
-                   FontSize="Small"
+            <Label Grid.Column="0" Grid.Row="2" Text="{Binding UsuarioActivo.Email}"
+                   FontSize="Small" Margin="7,0"
                    TextColor="{AppThemeBinding Light={StaticResource Gray600}, Dark={StaticResource Gray100}}"/>
-        </VerticalStackLayout>
+        </Grid>
+        
     </Shell.FlyoutHeader>
 
     <Shell.FlyoutFooter>
@@ -52,17 +52,5 @@
         ContentTemplate="{DataTemplate local:Cuenta}"
         Route="Cuenta"/>
     </FlyoutItem>
-
-    <ShellContent ContentTemplate="{DataTemplate local:Inicio}" />
-
-    <ShellContent ContentTemplate="{DataTemplate local:Cuenta}" Route="Cuenta"/>
-
-    <ShellContent ContentTemplate="{DataTemplate local:Carrito}" Route="Carrito"/>
-
-    <ShellContent ContentTemplate="{DataTemplate local:Login1}" Route="Login1" FlyoutItemIsVisible="False"/>
-
-    <ShellContent ContentTemplate="{DataTemplate local:Login2}" Route="Login2"/>
-
-    <ShellContent ContentTemplate="{DataTemplate local:DetallesPage}" Route="DetallesPage"/>
 
 </Shell>
