@@ -21,7 +21,7 @@
 
             <Entry x:Name="Correo"
                Keyboard="Email" 
-               FontSize="Small"
+               FontSize="Subtitle"
                HorizontalTextAlignment="Start" 
                HorizontalOptions="Fill" />
 
@@ -31,7 +31,8 @@
 
             <Entry Keyboard="Text" 
                x:Name="Contra"
-               FontSize="Small"
+               FontSize="Subtitle"
+               IsPassword="True"
                HorizontalTextAlignment="Start" 
                HorizontalOptions="Fill" />
 
@@ -41,8 +42,9 @@
 
             <Entry Keyboard="Text" 
                x:Name="Confirmar"
-               FontSize="Small"
+               FontSize="Subtitle"
                HorizontalTextAlignment="Start" 
+               IsPassword="True"
                HorizontalOptions="Fill" />
 
             <Button Text="Crear"
@@ -51,7 +53,7 @@
                 FontSize="Subtitle"
                 CornerRadius="13"
                 HorizontalOptions="Center"
-                Margin="5"
+                Margin="12"
                 BorderWidth="1"
                 Padding="25,10"
                 BorderColor="{AppThemeBinding Light={StaticResource Transparente}, Dark={StaticResource SBlanco}}"/>

@@ -29,7 +29,7 @@
             <Label />
 
             <Label Text="Nombre de usuario"
-               FontSize="Title"
+               FontSize="Medium"
                HorizontalTextAlignment="Start" />
 
             <Entry Keyboard="Email" 
@@ -39,12 +39,13 @@
                HorizontalOptions="Fill" />
 
             <Label Text="Contraseña"
-               FontSize="Title"
+               FontSize="Medium"
                HorizontalTextAlignment="Start"/>
 
             <Entry Keyboard="Text" 
                x:Name="Contra"
                FontSize="Medium"
+               IsPassword="True"
                HorizontalTextAlignment="Start" 
                HorizontalOptions="Fill" />
 
@@ -54,7 +55,7 @@
                 FontSize="Subtitle"
                 CornerRadius="13"
                 HorizontalOptions="Center"
-                Margin="5"
+                Margin="15"
                 Padding="16,0"
                 BorderWidth="1"
                 BorderColor="{AppThemeBinding Light={StaticResource Transparente}, Dark={StaticResource SBlanco}}"/>
@@ -66,7 +67,7 @@
                 CornerRadius="13"
                 HorizontalOptions="Center"
                 Margin="2"
-                Padding="16,0"
+                Padding="17,0"
                 BorderWidth="1"
                 BorderColor="{AppThemeBinding Light={StaticResource Transparente}, Dark={StaticResource SBlanco}}"/>
 
