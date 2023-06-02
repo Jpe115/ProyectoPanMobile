@@ -22,7 +22,8 @@ namespace ProyectoPanMobile.ViewModels
         public async Task ObtenerUsuario()
         {
             var usuario = await SecureStorage.GetAsync("cuenta");
-            UsuarioActivo = await panRepository.CualUsuario(usuario);
+            int id = Convert.ToInt32(usuario);
+            UsuarioActivo = await panRepository.CualUsuario(id);
         }
     }
 }

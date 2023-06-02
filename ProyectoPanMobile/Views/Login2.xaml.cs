@@ -40,9 +40,11 @@ public partial class Login2 : ContentPage
             }
             else
 			{
-                await SecureStorage.SetAsync("isAuth", "true");
-                await SecureStorage.SetAsync("cuenta",usuario);
                 await panRepository.RegistrarUsuario(usuario, password);
+                await SecureStorage.SetAsync("isAuth", "true");
+                int cual = await panRepository.ExisteUsuario(usuario,password);
+                string id = cual.ToString();
+                await SecureStorage.SetAsync("cuenta",id);
                 await Toast.Make("Cuenta creada exitosamente", ToastDuration.Short).Show();
                 await Shell.Current.GoToAsync("//Inicio");
             }

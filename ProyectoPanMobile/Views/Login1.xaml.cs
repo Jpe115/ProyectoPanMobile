@@ -25,7 +25,7 @@ public partial class Login1 : ContentPage
             string password = Contra.Text;
 
             PanRepository panRepository = new PanRepository();
-            bool existe = await panRepository.ExisteUsuario(usuario, password);
+            int existe = await panRepository.ExisteUsuario(usuario, password);
             if (usuario == null || password == null)
             {
                 await DisplayAlert("Error O.o", "Alguno de los campos está vacío", "Ok");
@@ -34,10 +34,11 @@ public partial class Login1 : ContentPage
             {
                 await DisplayAlert("Error O.o", "La contraseña debe contener al menos 4 caracteres", "Ok");
             }
-            else if(existe)
+            else if(existe !=0)
             {
+                string id = existe.ToString();
                 await SecureStorage.SetAsync("isAuth", "true");
-                await SecureStorage.SetAsync("cuenta", usuario);
+                await SecureStorage.SetAsync("cuenta", id);
                 await Toast.Make("Sesión iniciada", ToastDuration.Short).Show();
                 await Shell.Current.GoToAsync("//Inicio");
             }

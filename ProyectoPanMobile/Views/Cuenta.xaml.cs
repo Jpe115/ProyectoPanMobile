@@ -26,6 +26,8 @@ public partial class Cuenta : ContentPage
     {
 		await viewModel.ObtenerUsuario();
         base.OnAppearing();
+        SwContra.IsToggled = false;
+        SwUsuario.IsToggled = false;
     }
 
     private void SwContra_Toggled(object sender, ToggledEventArgs e)
