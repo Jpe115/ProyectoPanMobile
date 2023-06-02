@@ -10,7 +10,7 @@
     <ScrollView>
         <VerticalStackLayout Padding="10" Spacing="13" Margin="17">
 
-            <skia:SKLottieView Source="logo.json" RepeatCount="-1" RepeatMode="Restart" HeightRequest="130"/>
+            <skia:SKLottieView Source="logo.json" RepeatCount="-1" RepeatMode="Restart" HeightRequest="120"/>
 
             <Label Text="Nombre de usuario"
                FontSize="Medium"
